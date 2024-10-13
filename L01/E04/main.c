@@ -71,6 +71,10 @@ int main() {
         tab_ord_arrivo.log[i] = &tab.log[i];
         tab_ord_partenza.log[i] = &tab.log[i];
     }
+    // TO DO
+    /*controllare se un ordinamento è gia stato eseguito, se si non ricalcolarlo e mandare messaggio;
+     * Capire come organizzare il menu, dal momento che gli ordinamenti vengono calcolati a prescindere?
+     * */
 
 
     while(continua){
