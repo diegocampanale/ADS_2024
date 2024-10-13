@@ -114,23 +114,26 @@ void ricerca(tabella_t tab, char riga[31]) {
             }
         }
         if(found){
-            printf("m = %d ->",m);
+            // stampa la prima occorrenza
             stampaVoce(tab.log[m],stdout);
+
+            // scorre il vettore ordinato verso SINISTRA finchè trova occorrenze
             i = m-1;
             while (i>=0 && strstr(tab.log[i].partenza, search) == tab.log[i].partenza){
-                printf("i = %d ->",i);
                 stampaVoce(tab.log[i],stdout);
                 i--;
             }
+
+            // scorre il vettore ordinato verso DESTRA finchè trova occorrenze
             i = m+1;
             while (i<tab.n_voci && strstr(tab.log[i].partenza, search) == tab.log[i].partenza) {
-                printf("i = %d ->",i);
                 stampaVoce(tab.log[i], stdout);
                 i++;
             }
         }else{
             printf("Nessun occorrenza trovata per: %s\n",search);
         }
+        printf("\n");
 
     }else{
         // ricerca lineare
@@ -146,6 +149,8 @@ void ricerca(tabella_t tab, char riga[31]) {
             }
         }
         if(!flag){ printf("Nessun occorrenza trovata per: %s\n",search);}
+        printf("\n");
+
     }
 }
 
@@ -348,6 +353,7 @@ comando_e leggiComando(char comandi[][STR]){
 
     printf("Menu:\n- stampa [-f]\n- ordina_data\n- ordina_codice\n- ordina_partenza\n- ordina_arrivo\n- ricerca [stazione_partenza]\n- fine\n--> ");
     scanf("%s",comando); // read only cmd
+    printf("\n");
     strToLower(comando);
     cmd = r_stampa;
     while(cmd<=r_fine && strcmp(comando,comandi[cmd])!=0) {
