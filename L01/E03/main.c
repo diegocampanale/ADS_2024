@@ -99,19 +99,37 @@ void ricerca(tabella_t tab, char riga[31]) {
     if (ordinato_partenza){
         // ricerca dicotomica
         printf("Ricerca Dicotomica\n");
-        int m, found=0, l=0, r=tab.n_voci-1;
+        int m, found=0, l=0, r=tab.n_voci-1, i;
         char *pos;
 
         while (l<=r && found == 0){
             m = (l+r)/2;
             pos = strstr(tab.log[m].partenza, search);
             if(pos != NULL && pos == tab.log[m].partenza){
-                stampaVoce(tab.log[m],stdout);
                 found = 1;
+            }else if (strcmp(tab.log[m].partenza,search)<0){
+                l = m+1;
+            }else{
+                r=m-1;
             }
-            if (cioa){
-
+        }
+        if(found){
+            printf("m = %d ->",m);
+            stampaVoce(tab.log[m],stdout);
+            i = m-1;
+            while (i>=0 && strstr(tab.log[i].partenza, search) == tab.log[i].partenza){
+                printf("i = %d ->",i);
+                stampaVoce(tab.log[i],stdout);
+                i--;
             }
+            i = m+1;
+            while (i<tab.n_voci && strstr(tab.log[i].partenza, search) == tab.log[i].partenza) {
+                printf("i = %d ->",i);
+                stampaVoce(tab.log[i], stdout);
+                i++;
+            }
+        }else{
+            printf("Nessun occorrenza trovata per: %s\n",search);
         }
 
     }else{
