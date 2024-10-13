@@ -109,7 +109,9 @@ void ricerca(tabella_t tab, char riga[31]) {
                 stampaVoce(tab.log[m],stdout);
                 found = 1;
             }
-            if
+            if (){
+
+            }
         }
 
     }else{
