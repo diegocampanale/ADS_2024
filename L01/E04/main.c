@@ -72,11 +72,6 @@ int main() {
         tab_ord_partenza.log[i] = &tab.log[i];
     }
 
-    // eseguo gli ordinamenti e assegno a struct r_tabella_t i contenenti un vettore di puntatori alle struct originarie
-    tab_ord_data = ordina_data(tab_ord_data);
-    tab_ord_codice = ordina_codice(tab_ord_codice);
-    tab_ord_partenza = ordina_partenza(tab_ord_partenza);
-    tab_ord_arrivo = ordina_arrivo(tab_ord_arrivo);
 
     while(continua){
         cmd = leggiComando(comandi);
@@ -88,15 +83,19 @@ int main() {
                 stampa(tab, riga);
                 break;
             case r_ord_data:
+                tab_ord_data = ordina_data(tab_ord_data);
                 stampaRef(tab_ord_data,"");
                 break;
             case r_ord_cod:
+                tab_ord_codice = ordina_codice(tab_ord_codice);
                 stampaRef(tab_ord_codice,"");
                 break;
             case r_ord_part:
+                tab_ord_partenza = ordina_partenza(tab_ord_partenza);
                 stampaRef(tab_ord_partenza,"");
                 break;
             case r_ord_arrivo:
+                tab_ord_arrivo = ordina_arrivo(tab_ord_arrivo);
                 stampaRef(tab_ord_arrivo,"");
                 break;
             case r_ricerca:
