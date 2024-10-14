@@ -71,16 +71,12 @@ int main() {
         tab_ord_arrivo.log[i] = &tab.log[i];
         tab_ord_partenza.log[i] = &tab.log[i];
     }
-    // TO DO
-    /*controllare se un ordinamento è gia stato eseguito, se si non ricalcolarlo e mandare messaggio;
-     * Capire come organizzare il menu, dal momento che gli ordinamenti vengono calcolati a prescindere?
-     * */
+
     // ordinamento vettori di puntatori a struct
     tab_ord_data = ordina_data(tab_ord_data);
     tab_ord_codice = ordina_codice(tab_ord_codice);
     tab_ord_partenza = ordina_partenza(tab_ord_partenza);
     tab_ord_arrivo = ordina_arrivo(tab_ord_arrivo);
-
 
     while(continua){
         cmd = leggiComando(comandi);
@@ -109,7 +105,7 @@ int main() {
             case r_fine:
                 continua = 0;
                 break;
-            default: perror("Comando errato! Riprova\n");
+            default: printf("Comando errato! Riprova\n");
         }
     }
     return 0;
@@ -179,7 +175,7 @@ r_tabella_t ordina_arrivo(r_tabella_t tab) {
             }
         }
     }
-    printf("Vettore log ordinato per stazione di arrivo!\n");
+    // printf("Vettore log ordinato per stazione di arrivo!\n");
     return tab;
 }
 
@@ -199,7 +195,7 @@ r_tabella_t ordina_partenza(r_tabella_t tab) {
             }
         }
     }
-    printf("Vettore log ordinato per stazione di partenza!\n");
+    // printf("Vettore log ordinato per stazione di partenza!\n");
     return tab;
 }
 
@@ -221,7 +217,7 @@ r_tabella_t ordina_codice(r_tabella_t tab) {
             }
         }
     }
-    printf("Vettore log ordinato per codice!\n");
+    // printf("Vettore log ordinato per codice!\n");
     return tab;
 }
 
@@ -253,7 +249,7 @@ r_tabella_t ordina_data(r_tabella_t tab) {
             }
         }
     }
-    printf("vettore log ordinato per data!\n");
+    // printf("vettore log ordinato per data!\n");
     return tab;
 }
 
