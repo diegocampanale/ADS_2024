@@ -62,18 +62,22 @@ int main() {
                 break;
             case r_ord_data:
                 tab = ordina_data(tab);
+                stampa(tab,"");
                 ordinato_partenza = 0;
                 break;
             case r_ord_cod:
                 tab = ordina_codice(tab);
+                stampa(tab,"");
                 ordinato_partenza = 0;
                 break;
             case r_ord_part:
                 tab = ordina_partenza(tab);
+                stampa(tab,"");
                 ordinato_partenza = 1;
                 break;
             case r_ord_arrivo:
                 tab = ordina_arrivo(tab);
+                stampa(tab,"");
                 ordinato_partenza = 0;
                 break;
             case r_ricerca:
@@ -170,7 +174,7 @@ tabella_t ordina_arrivo(tabella_t tab) {
             }
         }
     }
-    printf("Vettore log ordinato per stazione di arrivo!\n");
+    // printf("Vettore log ordinato per stazione di arrivo!\n");
     return tab;
 }
 
@@ -190,7 +194,7 @@ tabella_t ordina_partenza(tabella_t tab) {
             }
         }
     }
-    printf("Vettore log ordinato per stazione di partenza!\n");
+    // printf("Vettore log ordinato per stazione di partenza!\n");
     return tab;
 }
 
@@ -212,7 +216,7 @@ tabella_t ordina_codice(tabella_t tab) {
             }
         }
     }
-    printf("Vettore log ordinato per codice!\n");
+    // printf("Vettore log ordinato per codice!\n");
     return tab;
 }
 
@@ -244,7 +248,7 @@ tabella_t ordina_data(tabella_t tab) {
             }
         }
     }
-    printf("vettore log ordinato per data!\n");
+    // printf("vettore log ordinato per data!\n");
     return tab;
 }
 
