@@ -1,16 +1,14 @@
 #include <stdio.h>
 
-#define INPUTFILE_PATH "./mat.txt"
-
-void separa(int **mat, int nr, int nc );
+#define INPUTFILE_PATH "./in.txt"
 
 int main(int argc, char ** argv){
-    int nr, nc, i;
+    char buf[100];
     FILE *fp = fopen(INPUTFILE_PATH, "r");
-    fscanf(fp, "%d %d ", &nr, &nc); // read row, col
-    for (i = 0; i<nr; i++){
+    fgets(buf, 100,fp);
 
-    }
+    printf("Hello Template!\n");
+    printf("%s", buf);
 
     return 0;
 }

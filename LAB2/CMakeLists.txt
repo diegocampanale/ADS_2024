@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.0)
 #-------USER VARIABLES-------#
 #Set those variables according to your needs
 #example set(GLOBAL_PROJECT_NAME L01) for lab01
-set(LAB_NAME L02)
+set(LAB_NAME L01)
 #Add directory names here!
 #example set(DIRECTORIES E01 E02 E03)
 set(DIRECTORIES E01 E02 E03)
@@ -20,4 +20,3 @@ endforeach()
 
 
 
-add_executable(new_target E01/main.c)
