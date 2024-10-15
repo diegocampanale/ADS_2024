@@ -1,14 +1,17 @@
 #include <stdio.h>
 
-#define INPUTFILE_PATH "./in.txt"
+#define INPUTFILE_PATH "/Users/diegocampanale/CLionProjects/ASD_24/L02/E02/mat.txt"
+
+void separa(int **mat, int nr, int nc );
 
 int main(int argc, char ** argv){
-    char buf[100];
+    int nr, nc, i;
     FILE *fp = fopen(INPUTFILE_PATH, "r");
-    fgets(buf, 100,fp);
+    fscanf(fp, "%d %d ", &nr, &nc);
+    printf("%d %d ", nr, nc);
+    for (i = 0; i<nr; i++){
 
-    printf("Hello Template!\n");
-    printf("%s", buf);
+    }
 
     return 0;
 }

@@ -13,7 +13,7 @@ add_executable(${PROJECT_NAME} main.c)
 #
 #example: set(FILES ./inputFile.txt ./anotherInputFile.txt) <- notice the relative path!
 #example: you will be now able to do something like #define FILE_PATH "./inputfile.txt" and then fopen(FILE_PATH, ...) without errors!
-set(FILES in.txt)
+set(FILES)
 
 #-------NON USER STUFF-------#
 #Do not modify this if you are not sure!
