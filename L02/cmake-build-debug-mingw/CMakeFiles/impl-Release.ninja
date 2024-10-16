@@ -49,8 +49,6 @@ build CMakeFiles/new_target.dir/Release/E01/main.c.obj: C_COMPILER__new_target_u
   FLAGS = -O3 -DNDEBUG -std=gnu99 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\new_target.dir\Release
   OBJECT_FILE_DIR = CMakeFiles\new_target.dir\Release\E01
-  TARGET_COMPILE_PDB = CMakeFiles\new_target.dir\Release\
-  TARGET_PDB = Release\new_target.pdb
 
 
 # =============================================================================
@@ -66,10 +64,9 @@ build Release/new_target.exe: C_EXECUTABLE_LINKER__new_target_Release CMakeFiles
   OBJECT_DIR = CMakeFiles\new_target.dir\Release
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_COMPILE_PDB = CMakeFiles\new_target.dir\Release\
   TARGET_FILE = Release\new_target.exe
   TARGET_IMPLIB = Release\libnew_target.dll.a
-  TARGET_PDB = Release\new_target.pdb
+  TARGET_PDB = new_target.exe.dbg
 
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
@@ -91,8 +88,6 @@ build E01/CMakeFiles/E01.dir/Release/main.c.obj: C_COMPILER__E01_unscanned_Relea
   FLAGS = -O3 -DNDEBUG -std=gnu99 -fdiagnostics-color=always
   OBJECT_DIR = E01\CMakeFiles\E01.dir\Release
   OBJECT_FILE_DIR = E01\CMakeFiles\E01.dir\Release
-  TARGET_COMPILE_PDB = E01\CMakeFiles\E01.dir\Release\
-  TARGET_PDB = E01\Release\E01.pdb
 
 
 # =============================================================================
@@ -108,10 +103,9 @@ build E01/Release/E01.exe: C_EXECUTABLE_LINKER__E01_Release E01/CMakeFiles/E01.d
   OBJECT_DIR = E01\CMakeFiles\E01.dir\Release
   POST_BUILD = cd .
   PRE_LINK = cmd.exe /C "cd /D C:\Users\s325040\CLionProjects\ADS_2024\L02\cmake-build-debug-mingw\E01 && "V:\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -E copy_directory C:/Users/s325040/CLionProjects/ADS_2024/L02/E01 C:/Users/s325040/CLionProjects/ADS_2024/L02/E01/../L02_export/E01/ && cd /D C:\Users\s325040\CLionProjects\ADS_2024\L02\cmake-build-debug-mingw\E01 && "V:\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -E remove C:/Users/s325040/CLionProjects/ADS_2024/L02/E01/../L02_export/E01/CMakeLists.txt && cd C:\Users\s325040\CLionProjects\ADS_2024\L02\cmake-build-debug-mingw"
-  TARGET_COMPILE_PDB = E01\CMakeFiles\E01.dir\Release\
   TARGET_FILE = E01\Release\E01.exe
   TARGET_IMPLIB = E01\Release\libE01.dll.a
-  TARGET_PDB = E01\Release\E01.pdb
+  TARGET_PDB = E01.exe.dbg
 
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
@@ -133,8 +127,6 @@ build E02/CMakeFiles/E02.dir/Release/main.c.obj: C_COMPILER__E02_unscanned_Relea
   FLAGS = -O3 -DNDEBUG -std=gnu99 -fdiagnostics-color=always
   OBJECT_DIR = E02\CMakeFiles\E02.dir\Release
   OBJECT_FILE_DIR = E02\CMakeFiles\E02.dir\Release
-  TARGET_COMPILE_PDB = E02\CMakeFiles\E02.dir\Release\
-  TARGET_PDB = E02\Release\E02.pdb
 
 
 # =============================================================================
@@ -150,10 +142,9 @@ build E02/Release/E02.exe: C_EXECUTABLE_LINKER__E02_Release E02/CMakeFiles/E02.d
   OBJECT_DIR = E02\CMakeFiles\E02.dir\Release
   POST_BUILD = cd .
   PRE_LINK = cmd.exe /C "cd /D C:\Users\s325040\CLionProjects\ADS_2024\L02\cmake-build-debug-mingw\E02 && "V:\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -E copy_directory C:/Users/s325040/CLionProjects/ADS_2024/L02/E02 C:/Users/s325040/CLionProjects/ADS_2024/L02/E02/../L02_export/E02/ && cd /D C:\Users\s325040\CLionProjects\ADS_2024\L02\cmake-build-debug-mingw\E02 && "V:\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -E remove C:/Users/s325040/CLionProjects/ADS_2024/L02/E02/../L02_export/E02/CMakeLists.txt && cd /D C:\Users\s325040\CLionProjects\ADS_2024\L02\cmake-build-debug-mingw\E02 && "V:\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -E copy_if_different C:/Users/s325040/CLionProjects/ADS_2024/L02/E02/./mat.txt C:/Users/s325040/CLionProjects/ADS_2024/L02/cmake-build-debug-mingw/E02/Release/./mat.txt && cd C:\Users\s325040\CLionProjects\ADS_2024\L02\cmake-build-debug-mingw"
-  TARGET_COMPILE_PDB = E02\CMakeFiles\E02.dir\Release\
   TARGET_FILE = E02\Release\E02.exe
   TARGET_IMPLIB = E02\Release\libE02.dll.a
-  TARGET_PDB = E02\Release\E02.pdb
+  TARGET_PDB = E02.exe.dbg
 
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
@@ -169,14 +160,12 @@ build E02/Release/E02.exe: C_EXECUTABLE_LINKER__E02_Release E02/CMakeFiles/E02.d
 
 build cmake_object_order_depends_target_E03_RELEASE: phony || E03/CMakeFiles/E03.dir
 
-build E03/CMakeFiles/E03.dir/Release/main.c.obj: C_COMPILER__E03_unscanned_Release C$:/Users/s325040/CLionProjects/ADS_2024/L02/E03/main.c | C$:/Users/s325040/CLionProjects/ADS_2024/L02/E03/in.txt || cmake_object_order_depends_target_E03_RELEASE
+build E03/CMakeFiles/E03.dir/Release/main.c.obj: C_COMPILER__E03_unscanned_Release C$:/Users/s325040/CLionProjects/ADS_2024/L02/E03/main.c | C$:/Users/s325040/CLionProjects/ADS_2024/L02/E03/corse.txt || cmake_object_order_depends_target_E03_RELEASE
   DEFINES = -DCMAKE_INTDIR=\"Release\"
   DEP_FILE = E03\CMakeFiles\E03.dir\Release\main.c.obj.d
   FLAGS = -O3 -DNDEBUG -std=gnu99 -fdiagnostics-color=always
   OBJECT_DIR = E03\CMakeFiles\E03.dir\Release
   OBJECT_FILE_DIR = E03\CMakeFiles\E03.dir\Release
-  TARGET_COMPILE_PDB = E03\CMakeFiles\E03.dir\Release\
-  TARGET_PDB = E03\Release\E03.pdb
 
 
 # =============================================================================
@@ -191,11 +180,10 @@ build E03/Release/E03.exe: C_EXECUTABLE_LINKER__E03_Release E03/CMakeFiles/E03.d
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = E03\CMakeFiles\E03.dir\Release
   POST_BUILD = cd .
-  PRE_LINK = cmd.exe /C "cd /D C:\Users\s325040\CLionProjects\ADS_2024\L02\cmake-build-debug-mingw\E03 && "V:\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -E copy_directory C:/Users/s325040/CLionProjects/ADS_2024/L02/E03 C:/Users/s325040/CLionProjects/ADS_2024/L02/E03/../L02_export/E03/ && cd /D C:\Users\s325040\CLionProjects\ADS_2024\L02\cmake-build-debug-mingw\E03 && "V:\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -E remove C:/Users/s325040/CLionProjects/ADS_2024/L02/E03/../L02_export/E03/CMakeLists.txt && cd /D C:\Users\s325040\CLionProjects\ADS_2024\L02\cmake-build-debug-mingw\E03 && "V:\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -E copy_if_different C:/Users/s325040/CLionProjects/ADS_2024/L02/E03/in.txt C:/Users/s325040/CLionProjects/ADS_2024/L02/cmake-build-debug-mingw/E03/Release/in.txt && cd C:\Users\s325040\CLionProjects\ADS_2024\L02\cmake-build-debug-mingw"
-  TARGET_COMPILE_PDB = E03\CMakeFiles\E03.dir\Release\
+  PRE_LINK = cmd.exe /C "cd /D C:\Users\s325040\CLionProjects\ADS_2024\L02\cmake-build-debug-mingw\E03 && "V:\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -E copy_directory C:/Users/s325040/CLionProjects/ADS_2024/L02/E03 C:/Users/s325040/CLionProjects/ADS_2024/L02/E03/../L02_export/E03/ && cd /D C:\Users\s325040\CLionProjects\ADS_2024\L02\cmake-build-debug-mingw\E03 && "V:\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -E remove C:/Users/s325040/CLionProjects/ADS_2024/L02/E03/../L02_export/E03/CMakeLists.txt && cd /D C:\Users\s325040\CLionProjects\ADS_2024\L02\cmake-build-debug-mingw\E03 && "V:\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -E copy_if_different C:/Users/s325040/CLionProjects/ADS_2024/L02/E03/corse.txt C:/Users/s325040/CLionProjects/ADS_2024/L02/cmake-build-debug-mingw/E03/Release/corse.txt && cd C:\Users\s325040\CLionProjects\ADS_2024\L02\cmake-build-debug-mingw"
   TARGET_FILE = E03\Release\E03.exe
   TARGET_IMPLIB = E03\Release\libE03.dll.a
-  TARGET_PDB = E03\Release\E03.pdb
+  TARGET_PDB = E03.exe.dbg
 
 build E01.exe$:Release: phony E01/Release/E01.exe
 
