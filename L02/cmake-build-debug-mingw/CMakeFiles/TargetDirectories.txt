@@ -1,0 +1,12 @@
+C:/Users/s325040/CLionProjects/ADS_2024/L02/cmake-build-debug-mingw/CMakeFiles/new_target.dir
+C:/Users/s325040/CLionProjects/ADS_2024/L02/cmake-build-debug-mingw/CMakeFiles/edit_cache.dir
+C:/Users/s325040/CLionProjects/ADS_2024/L02/cmake-build-debug-mingw/CMakeFiles/rebuild_cache.dir
+C:/Users/s325040/CLionProjects/ADS_2024/L02/cmake-build-debug-mingw/E01/CMakeFiles/E01.dir
+C:/Users/s325040/CLionProjects/ADS_2024/L02/cmake-build-debug-mingw/E01/CMakeFiles/edit_cache.dir
+C:/Users/s325040/CLionProjects/ADS_2024/L02/cmake-build-debug-mingw/E01/CMakeFiles/rebuild_cache.dir
+C:/Users/s325040/CLionProjects/ADS_2024/L02/cmake-build-debug-mingw/E02/CMakeFiles/E02.dir
+C:/Users/s325040/CLionProjects/ADS_2024/L02/cmake-build-debug-mingw/E02/CMakeFiles/edit_cache.dir
+C:/Users/s325040/CLionProjects/ADS_2024/L02/cmake-build-debug-mingw/E02/CMakeFiles/rebuild_cache.dir
+C:/Users/s325040/CLionProjects/ADS_2024/L02/cmake-build-debug-mingw/E03/CMakeFiles/E03.dir
+C:/Users/s325040/CLionProjects/ADS_2024/L02/cmake-build-debug-mingw/E03/CMakeFiles/edit_cache.dir
+C:/Users/s325040/CLionProjects/ADS_2024/L02/cmake-build-debug-mingw/E03/CMakeFiles/rebuild_cache.dir

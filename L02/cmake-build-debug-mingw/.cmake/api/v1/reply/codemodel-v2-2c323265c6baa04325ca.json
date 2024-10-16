@@ -1,0 +1,490 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3
+					],
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						3
+					]
+				},
+				{
+					"build" : "E01",
+					"jsonFile" : "directory-E01-Debug-d50e6af6e34236d9b9b5.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "E01",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"build" : "E02",
+					"jsonFile" : "directory-E02-Debug-f84dfe4cd3877f6a1236.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 2,
+					"source" : "E02",
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"build" : "E03",
+					"jsonFile" : "directory-E03-Debug-dc339ec42ba6e657c2d8.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 3,
+					"source" : "E03",
+					"targetIndexes" : 
+					[
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "L02",
+					"targetIndexes" : 
+					[
+						3
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						1
+					],
+					"name" : "E01",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						2
+					],
+					"name" : "E02",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						3
+					],
+					"name" : "E03",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 1,
+					"id" : "E01::@004b98004f6ebb1ce50b",
+					"jsonFile" : "target-E01-Debug-b9a7b35d6e8612e081c0.json",
+					"name" : "E01",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "E02::@be1aa9bde16c250c1700",
+					"jsonFile" : "target-E02-Debug-4b9fa7670a9fa75bd28b.json",
+					"name" : "E02",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "E03::@6ff99127d056254cfc1a",
+					"jsonFile" : "target-E03-Debug-318605b38b93071f4fdd.json",
+					"name" : "E03",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "new_target::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-new_target-Debug-7943981cdc8b09b4b8e3.json",
+					"name" : "new_target",
+					"projectIndex" : 0
+				}
+			]
+		},
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3
+					],
+					"jsonFile" : "directory-.-Release-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						3
+					]
+				},
+				{
+					"build" : "E01",
+					"jsonFile" : "directory-E01-Release-d50e6af6e34236d9b9b5.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "E01",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"build" : "E02",
+					"jsonFile" : "directory-E02-Release-f84dfe4cd3877f6a1236.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 2,
+					"source" : "E02",
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"build" : "E03",
+					"jsonFile" : "directory-E03-Release-dc339ec42ba6e657c2d8.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 3,
+					"source" : "E03",
+					"targetIndexes" : 
+					[
+						2
+					]
+				}
+			],
+			"name" : "Release",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "L02",
+					"targetIndexes" : 
+					[
+						3
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						1
+					],
+					"name" : "E01",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						2
+					],
+					"name" : "E02",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						3
+					],
+					"name" : "E03",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 1,
+					"id" : "E01::@004b98004f6ebb1ce50b",
+					"jsonFile" : "target-E01-Release-06e987a57cfca54ca642.json",
+					"name" : "E01",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "E02::@be1aa9bde16c250c1700",
+					"jsonFile" : "target-E02-Release-0b63ce50984e097e34a0.json",
+					"name" : "E02",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "E03::@6ff99127d056254cfc1a",
+					"jsonFile" : "target-E03-Release-dd12709cc0d2319ea715.json",
+					"name" : "E03",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "new_target::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-new_target-Release-ccad077acf4a574c1782.json",
+					"name" : "new_target",
+					"projectIndex" : 0
+				}
+			]
+		},
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3
+					],
+					"jsonFile" : "directory-.-RelWithDebInfo-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						3
+					]
+				},
+				{
+					"build" : "E01",
+					"jsonFile" : "directory-E01-RelWithDebInfo-d50e6af6e34236d9b9b5.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "E01",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"build" : "E02",
+					"jsonFile" : "directory-E02-RelWithDebInfo-f84dfe4cd3877f6a1236.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 2,
+					"source" : "E02",
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"build" : "E03",
+					"jsonFile" : "directory-E03-RelWithDebInfo-dc339ec42ba6e657c2d8.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 3,
+					"source" : "E03",
+					"targetIndexes" : 
+					[
+						2
+					]
+				}
+			],
+			"name" : "RelWithDebInfo",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "L02",
+					"targetIndexes" : 
+					[
+						3
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						1
+					],
+					"name" : "E01",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						2
+					],
+					"name" : "E02",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						3
+					],
+					"name" : "E03",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 1,
+					"id" : "E01::@004b98004f6ebb1ce50b",
+					"jsonFile" : "target-E01-RelWithDebInfo-a5ad1e89ac1107f567dc.json",
+					"name" : "E01",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "E02::@be1aa9bde16c250c1700",
+					"jsonFile" : "target-E02-RelWithDebInfo-5d29f19f41fda7aff7e9.json",
+					"name" : "E02",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "E03::@6ff99127d056254cfc1a",
+					"jsonFile" : "target-E03-RelWithDebInfo-4bc7b2d97b1285f4d05a.json",
+					"name" : "E03",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "new_target::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-new_target-RelWithDebInfo-4ebadf5808720c189d13.json",
+					"name" : "new_target",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/s325040/CLionProjects/ADS_2024/L02/cmake-build-debug-mingw",
+		"source" : "C:/Users/s325040/CLionProjects/ADS_2024/L02"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 5
+	}
+}
