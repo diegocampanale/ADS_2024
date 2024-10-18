@@ -1,13 +1,14 @@
 #include <stdio.h>
-#include <malloc.h>
 #include <string.h>
+#include <stdlib.h>
 
-#define INPUTFILE_PATH "C:\\Users\\s325040\\CLionProjects\\ADS_2024\\L02\\E02\\mat.txt"
+#define INPUTFILE_PATH "/Users/diegocampanale/CLionProjects/ASD_24/L02/E02/mat.txt"
 
 void separa(int **mat, int nr, int nc, int** b, int** w);
 int **malloc2dR(int nr, int nc);
 void malloc2dP(int ***mp, int nr, int nc);
 void stampaMat(int **m, int nr, int nc);
+void free2d(int **m, int nr);
 
 int main(int argc, char ** argv){
     int nr, nc, **matR, **matP, *black, *white;
@@ -36,6 +37,9 @@ int main(int argc, char ** argv){
     //stampaMat(matP,nr,nc);
     separa(matP,nr,nc, &black, &white);
 
+    // dealloca le matrici
+    free2d(matP,nr);
+
     //stampa vettori
     int len_black = (nr*nc)/2;
     int len_white = (nr*nc)-len_black;
@@ -53,6 +57,14 @@ int main(int argc, char ** argv){
 
     fclose(fp);
     return 0;
+}
+
+void free2d(int **m, int nr) {
+    int i;
+    for(i=0; i<nr;i++){
+        free(m[i]);
+    }
+    free(m);
 }
 
 void separa(int **mat, int nr, int nc, int** b, int** w){

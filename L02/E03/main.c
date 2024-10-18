@@ -226,11 +226,7 @@ int confrontaCodice(char codice1[], char codice2[]){
     int c1 = atoi(&codice1[3]);
     int c2 = atoi(&codice2[3]);
 
-    if(c1>c2){
-        return 1;
-    }else{
-        return 0;
-    }
+    return c1-c2;
 }
 
 r_tabella_t ordina_data(r_tabella_t tab) {

@@ -1,0 +1,3 @@
+/Users/diegocampanale/CLionProjects/ASD_24/Studio/Puntatori_Strutture_Dati_Dinamiche/Struct1/cmake-build-debug/CMakeFiles/Struct1.dir
+/Users/diegocampanale/CLionProjects/ASD_24/Studio/Puntatori_Strutture_Dati_Dinamiche/Struct1/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/diegocampanale/CLionProjects/ASD_24/Studio/Puntatori_Strutture_Dati_Dinamiche/Struct1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
