@@ -40,37 +40,6 @@ include CMakeFiles/rules.ninja
 # Logical path to working directory; prefix for absolute paths.
 
 cmake_ninja_workdir = /Users/diegocampanale/CLionProjects/ASD_24/L02/cmake-build-debug/
-# =============================================================================
-# Object build statements for EXECUTABLE target new_target
-
-
-#############################################
-# Order-only phony target for new_target
-
-build cmake_object_order_depends_target_new_target: phony || CMakeFiles/new_target.dir
-
-build CMakeFiles/new_target.dir/E01/main.c.o: C_COMPILER__new_target_unscanned_Debug /Users/diegocampanale/CLionProjects/ASD_24/L02/E01/main.c || cmake_object_order_depends_target_new_target
-  DEP_FILE = CMakeFiles/new_target.dir/E01/main.c.o.d
-  FLAGS = -g -std=gnu99 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk -fcolor-diagnostics
-  OBJECT_DIR = CMakeFiles/new_target.dir
-  OBJECT_FILE_DIR = CMakeFiles/new_target.dir/E01
-
-
-# =============================================================================
-# Link build statements for EXECUTABLE target new_target
-
-
-#############################################
-# Link the executable new_target
-
-build new_target: C_EXECUTABLE_LINKER__new_target_Debug CMakeFiles/new_target.dir/E01/main.c.o
-  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk
-  OBJECT_DIR = CMakeFiles/new_target.dir
-  POST_BUILD = :
-  PRE_LINK = :
-  TARGET_FILE = new_target
-  TARGET_PDB = new_target.dbg
-
 
 #############################################
 # Utility command for edit_cache
@@ -288,7 +257,7 @@ build E03: phony E03/E03
 #############################################
 # Folder: /Users/diegocampanale/CLionProjects/ASD_24/L02/cmake-build-debug
 
-build all: phony new_target E01/all E02/all E03/all
+build all: phony E01/all E02/all E03/all
 
 # =============================================================================
 

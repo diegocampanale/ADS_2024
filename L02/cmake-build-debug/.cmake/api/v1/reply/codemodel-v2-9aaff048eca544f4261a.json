@@ -18,11 +18,7 @@
 						"string" : "3.0"
 					},
 					"projectIndex" : 0,
-					"source" : ".",
-					"targetIndexes" : 
-					[
-						3
-					]
+					"source" : "."
 				},
 				{
 					"build" : "E01",
@@ -84,11 +80,7 @@
 					[
 						0
 					],
-					"name" : "L02",
-					"targetIndexes" : 
-					[
-						3
-					]
+					"name" : "L02"
 				},
 				{
 					"directoryIndexes" : 
@@ -149,13 +141,6 @@
 					"jsonFile" : "target-E03-Debug-a7839a74d3e3f97105e3.json",
 					"name" : "E03",
 					"projectIndex" : 3
-				},
-				{
-					"directoryIndex" : 0,
-					"id" : "new_target::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-new_target-Debug-34d4675f63f22eea3e09.json",
-					"name" : "new_target",
-					"projectIndex" : 0
 				}
 			]
 		}

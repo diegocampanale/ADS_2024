@@ -6,7 +6,6 @@
 #define OUTPUTFILE_PATH "out.txt"
 #define INPUTFILE_PATH "corse.txt"
 #define STR 31
-#define MAXR 1000
 
 typedef enum {r_stampa, r_ord_data, r_ord_cod, r_ord_part, r_ord_arrivo, r_ricerca,r_leggi, r_fine } comando_e;
 typedef struct { int gg; int mm; int aa } data_t;
@@ -53,7 +52,7 @@ int main() {
     int continua = 1;
     comando_e cmd;
     tabella_t tab;
-    char riga[STR*2-1];
+    char riga[STR*2];
 
     tab = leggiTabella(INPUTFILE_PATH);
 
@@ -335,7 +334,7 @@ void stampa(voce_t *v, int n, char riga[]) {
 }
 
 int stampaVoce(voce_t record, FILE* fileout) {
-    int n = fprintf(fileout, "%-10s %-15s %-15s %04d/%02d/%02d   %02d:%02d:%02d      %02d:%02d:%02d      %-8d\n",
+    int n = fprintf(fileout, "%-10s %-18s %-18s %04d/%02d/%02d   %02d:%02d:%02d      %02d:%02d:%02d      %-8d\n",
             record.codice,
             record.partenza,
             record.destinazione,
@@ -392,7 +391,7 @@ comando_e leggiComando(char comandi[][STR]){
     int c=0, continua=0;
     char riga[100], comando[STR];
 
-    printf("Menu:\n- stampa [-f]\n- ordina_data\n- ordina_codice\n- ordina_partenza\n- ordina_arrivo\n- ricerca [stazione_partenza]\n- leggi [./nomefile.txt]\n- fine\n--> ");
+    printf("Menu:\n- stampa [-f]\n- ordina_data\n- ordina_codice\n- ordina_partenza\n- ordina_arrivo\n- ricerca [stazione_partenza]\n- leggi [nomefile.txt]\n- fine\n--> ");
     scanf("%s",comando); // read only cmd
     printf("\n");
     strToLower(comando);

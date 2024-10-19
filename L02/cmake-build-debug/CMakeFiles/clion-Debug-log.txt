@@ -10,6 +10,6 @@ CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
 E01 will be built in the project
 E02 will be built in the project
 E03 will be built in the project
--- Configuring done (0.1s)
+-- Configuring done (0.0s)
 -- Generating done (0.0s)
 -- Build files have been written to: /Users/diegocampanale/CLionProjects/ASD_24/L02/cmake-build-debug

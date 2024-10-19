@@ -18,6 +18,3 @@ foreach(DIR ${DIRECTORIES})
     message(${DIR} " will be built in the project")
 endforeach()
 
-
-
-add_executable(new_target E01/main.c)

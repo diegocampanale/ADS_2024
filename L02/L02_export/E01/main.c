@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#define INPUTFILE_PATH "./corsecorse.txt"
+#define INPUTFILE_PATH "./corse.txt"
 
 int gcd(int a, int b);
 
