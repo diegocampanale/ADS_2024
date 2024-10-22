@@ -4,7 +4,6 @@
 
 #define INPUTFILE_PATH "brani.txt"
 #define MAXR 255
-#define MAX_SONG 5
 
 typedef struct {
     int num_scelte;
