@@ -96,15 +96,15 @@ void leggi(tabella_t *t, char riga[]) {
     int i;
     char nomefile[STR];
     sscanf(riga,"%s",nomefile);
-    // libero il vettore di struct allocato dinamicamente (*t).log
-    free(t->log);
 
-    // libero i vettori di puntatori a struct t->og[i]
+    // libero i vettori di puntatori a struct t->log[i]
     // le struct puntate sono già state liberate precedentemente
     free(t->ord_data);
     free(t->ord_codice);
     free(t->ord_partenza);
     free(t->ord_arrivo);
+    // libero il vettore di struct allocato dinamicamente (*t).log
+    free(t->log);
 
     *t = leggiTabella(nomefile);
 }
@@ -354,12 +354,15 @@ tabella_t leggiTabella(char *filename){
         exit(-1);
 
     fscanf(fin,"%d", &tab.n_voci);
+
     tab.log = (voce_t *) malloc(tab.n_voci*sizeof (voce_t));
 
     tab.ord_data = (voce_t **) malloc(tab.n_voci*sizeof (voce_t *));
     tab.ord_codice = (voce_t **) malloc(tab.n_voci*sizeof (voce_t *));
     tab.ord_partenza = (voce_t **) malloc(tab.n_voci*sizeof (voce_t *));
     tab.ord_arrivo = (voce_t **) malloc(tab.n_voci*sizeof (voce_t *));
+    if (tab.log == NULL || tab.ord_data== NULL || tab.ord_codice== NULL || tab.ord_partenza== NULL || tab.ord_arrivo== NULL)
+        exit(1);
 
     for (i=0; i<tab.n_voci; i++){
         fscanf(fin, " %s %s %s %s %s %s %d\n", tab.log[i].codice, tab.log[i].partenza, tab.log[i].destinazione, tab.log[i].data_str, tab.log[i].orap_str, tab.log[i].orad_str, &tab.log[i].ritardo);

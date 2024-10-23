@@ -1,8 +1,8 @@
-C:/Users/s325040/CLionProjects/ADS_2024/L03/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/s325040/CLionProjects/ADS_2024/L03/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-C:/Users/s325040/CLionProjects/ADS_2024/L03/cmake-build-debug/E01/CMakeFiles/E01.dir
-C:/Users/s325040/CLionProjects/ADS_2024/L03/cmake-build-debug/E01/CMakeFiles/edit_cache.dir
-C:/Users/s325040/CLionProjects/ADS_2024/L03/cmake-build-debug/E01/CMakeFiles/rebuild_cache.dir
-C:/Users/s325040/CLionProjects/ADS_2024/L03/cmake-build-debug/E02/CMakeFiles/E02.dir
-C:/Users/s325040/CLionProjects/ADS_2024/L03/cmake-build-debug/E02/CMakeFiles/edit_cache.dir
-C:/Users/s325040/CLionProjects/ADS_2024/L03/cmake-build-debug/E02/CMakeFiles/rebuild_cache.dir
+/Users/diegocampanale/CLionProjects/ASD_24/L03/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/diegocampanale/CLionProjects/ASD_24/L03/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/diegocampanale/CLionProjects/ASD_24/L03/cmake-build-debug/E01/CMakeFiles/E01.dir
+/Users/diegocampanale/CLionProjects/ASD_24/L03/cmake-build-debug/E01/CMakeFiles/edit_cache.dir
+/Users/diegocampanale/CLionProjects/ASD_24/L03/cmake-build-debug/E01/CMakeFiles/rebuild_cache.dir
+/Users/diegocampanale/CLionProjects/ASD_24/L03/cmake-build-debug/E02/CMakeFiles/E02.dir
+/Users/diegocampanale/CLionProjects/ASD_24/L03/cmake-build-debug/E02/CMakeFiles/edit_cache.dir
+/Users/diegocampanale/CLionProjects/ASD_24/L03/cmake-build-debug/E02/CMakeFiles/rebuild_cache.dir

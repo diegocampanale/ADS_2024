@@ -2,7 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-#define INPUTFILE_PATH "/Users/diegocampanale/CLionProjects/ASD_24/L02/E02/mat.txt"
+#define INPUTFILE_PATH "mat.txt"
 
 void separa(int **mat, int nr, int nc, int** b, int** w);
 int **malloc2dR(int nr, int nc);
