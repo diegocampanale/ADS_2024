@@ -11,7 +11,7 @@
 						1,
 						2
 					],
-					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.0"
@@ -21,7 +21,7 @@
 				},
 				{
 					"build" : "E01",
-					"jsonFile" : "directory-E01-Debug-86c66632aeac4f23da58.json",
+					"jsonFile" : "directory-E01-Debug-d50e6af6e34236d9b9b5.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.0"
@@ -36,7 +36,7 @@
 				},
 				{
 					"build" : "E02",
-					"jsonFile" : "directory-E02-Debug-1d5b307a30e38ba92c07.json",
+					"jsonFile" : "directory-E02-Debug-f84dfe4cd3877f6a1236.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.0"
@@ -95,14 +95,14 @@
 				{
 					"directoryIndex" : 1,
 					"id" : "E01::@004b98004f6ebb1ce50b",
-					"jsonFile" : "target-E01-Debug-7c7e793e671e90f692ca.json",
+					"jsonFile" : "target-E01-Debug-4dd7b46cbcd596abe3ea.json",
 					"name" : "E01",
 					"projectIndex" : 1
 				},
 				{
 					"directoryIndex" : 2,
 					"id" : "E02::@be1aa9bde16c250c1700",
-					"jsonFile" : "target-E02-Debug-f54554c695f0106fb3ca.json",
+					"jsonFile" : "target-E02-Debug-3a04d88dce20ecdcdf17.json",
 					"name" : "E02",
 					"projectIndex" : 2
 				}
@@ -112,12 +112,12 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/Users/diegocampanale/CLionProjects/ASD_24/L03/cmake-build-debug",
-		"source" : "/Users/diegocampanale/CLionProjects/ASD_24/L03"
+		"build" : "C:/Users/s325040/CLionProjects/ADS_2024/L03/cmake-build-debug",
+		"source" : "C:/Users/s325040/CLionProjects/ADS_2024/L03"
 	},
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 6
+		"minor" : 5
 	}
 }
