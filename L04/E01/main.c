@@ -2,13 +2,24 @@
 
 #define INPUTFILE_PATH "grafo.txt"
 
-int main(int argc, char ** argv){
-    char buf[100];
-    FILE *fp = fopen(INPUTFILE_PATH, "r");
-    fgets(buf, 100,fp);
+typedef struct {
+    int u; int v;
+}arco_t;
 
-    printf("Hello Template!\n");
-    printf("%s", buf);
+typedef struct {
+    int n;
+    arco_t *archi;
+}grafo_t;
+
+int main(int argc, char ** argv){
+    grafo_t gr;
+    int i;
+
+    FILE *fp = fopen(INPUTFILE_PATH, "r");
+    fscanf(fp,"%d",&i);
+    printf("%d\n",i);
+
+    fclose(fp);
 
     return 0;
 }
