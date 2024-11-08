@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "E03/E03"
+			"path" : "E01/E01"
 		}
 	],
 	"backtrace" : 1,
@@ -14,7 +14,7 @@
 		],
 		"files" : 
 		[
-			"E03/CMakeLists.txt"
+			"E01/CMakeLists.txt"
 		],
 		"nodes" : 
 		[
@@ -35,7 +35,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-g -std=gnu99 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk -fcolor-diagnostics"
+					"fragment" : "-g -std=gnu99 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk -mmacosx-version-min=15.0 -fcolor-diagnostics"
 				}
 			],
 			"language" : "C",
@@ -53,7 +53,7 @@
 			]
 		}
 	],
-	"id" : "E03::@6ff99127d056254cfc1a",
+	"id" : "E01::@004b98004f6ebb1ce50b",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -69,12 +69,12 @@
 		],
 		"language" : "C"
 	},
-	"name" : "E03",
-	"nameOnDisk" : "E03",
+	"name" : "E01",
+	"nameOnDisk" : "E01",
 	"paths" : 
 	{
-		"build" : "E03",
-		"source" : "E03"
+		"build" : "E01",
+		"source" : "E01"
 	},
 	"sourceGroups" : 
 	[
@@ -91,7 +91,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "E03/main.c",
+			"path" : "E01/main.c",
 			"sourceGroupIndex" : 0
 		}
 	],
