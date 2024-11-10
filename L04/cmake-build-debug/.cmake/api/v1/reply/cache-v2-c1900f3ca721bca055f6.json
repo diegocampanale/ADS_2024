@@ -807,7 +807,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "5"
+			"value" : "6"
 		},
 		{
 			"name" : "CMAKE_OBJCOPY",
@@ -1328,6 +1328,42 @@
 			],
 			"type" : "STATIC",
 			"value" : "/Users/diegocampanale/CLionProjects/ASD_24/L04/E03"
+		},
+		{
+			"name" : "E03_sol_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/Users/diegocampanale/CLionProjects/ASD_24/L04/cmake-build-debug/E03_sol"
+		},
+		{
+			"name" : "E03_sol_IS_TOP_LEVEL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "OFF"
+		},
+		{
+			"name" : "E03_sol_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/Users/diegocampanale/CLionProjects/ASD_24/L04/E03_sol"
 		},
 		{
 			"name" : "E04_BINARY_DIR",

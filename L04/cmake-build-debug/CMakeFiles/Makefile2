@@ -67,6 +67,7 @@ all: E01/all
 all: E02/all
 all: E03/all
 all: E04/all
+all: E03_sol/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -74,6 +75,7 @@ preinstall: E01/preinstall
 preinstall: E02/preinstall
 preinstall: E03/preinstall
 preinstall: E04/preinstall
+preinstall: E03_sol/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
@@ -81,6 +83,7 @@ clean: E01/clean
 clean: E02/clean
 clean: E03/clean
 clean: E04/clean
+clean: E03_sol/clean
 .PHONY : clean
 
 #=============================================================================
@@ -127,6 +130,21 @@ E03/preinstall:
 # Recursive "clean" directory target.
 E03/clean: E03/CMakeFiles/E03.dir/clean
 .PHONY : E03/clean
+
+#=============================================================================
+# Directory level rules for directory E03_sol
+
+# Recursive "all" directory target.
+E03_sol/all: E03_sol/CMakeFiles/E03_sol.dir/all
+.PHONY : E03_sol/all
+
+# Recursive "preinstall" directory target.
+E03_sol/preinstall:
+.PHONY : E03_sol/preinstall
+
+# Recursive "clean" directory target.
+E03_sol/clean: E03_sol/CMakeFiles/E03_sol.dir/clean
+.PHONY : E03_sol/clean
 
 #=============================================================================
 # Directory level rules for directory E04
@@ -228,7 +246,7 @@ E03/CMakeFiles/E03.dir/clean:
 E04/CMakeFiles/E04.dir/all:
 	$(MAKE) $(MAKESILENT) -f E04/CMakeFiles/E04.dir/build.make E04/CMakeFiles/E04.dir/depend
 	$(MAKE) $(MAKESILENT) -f E04/CMakeFiles/E04.dir/build.make E04/CMakeFiles/E04.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/diegocampanale/CLionProjects/ASD_24/L04/cmake-build-debug/CMakeFiles --progress-num=7,8 "Built target E04"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/diegocampanale/CLionProjects/ASD_24/L04/cmake-build-debug/CMakeFiles --progress-num=9,10 "Built target E04"
 .PHONY : E04/CMakeFiles/E04.dir/all
 
 # Build rule for subdir invocation for target.
@@ -246,6 +264,32 @@ E04: E04/CMakeFiles/E04.dir/rule
 E04/CMakeFiles/E04.dir/clean:
 	$(MAKE) $(MAKESILENT) -f E04/CMakeFiles/E04.dir/build.make E04/CMakeFiles/E04.dir/clean
 .PHONY : E04/CMakeFiles/E04.dir/clean
+
+#=============================================================================
+# Target rules for target E03_sol/CMakeFiles/E03_sol.dir
+
+# All Build rule for target.
+E03_sol/CMakeFiles/E03_sol.dir/all:
+	$(MAKE) $(MAKESILENT) -f E03_sol/CMakeFiles/E03_sol.dir/build.make E03_sol/CMakeFiles/E03_sol.dir/depend
+	$(MAKE) $(MAKESILENT) -f E03_sol/CMakeFiles/E03_sol.dir/build.make E03_sol/CMakeFiles/E03_sol.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/diegocampanale/CLionProjects/ASD_24/L04/cmake-build-debug/CMakeFiles --progress-num=7,8 "Built target E03_sol"
+.PHONY : E03_sol/CMakeFiles/E03_sol.dir/all
+
+# Build rule for subdir invocation for target.
+E03_sol/CMakeFiles/E03_sol.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/diegocampanale/CLionProjects/ASD_24/L04/cmake-build-debug/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 E03_sol/CMakeFiles/E03_sol.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/diegocampanale/CLionProjects/ASD_24/L04/cmake-build-debug/CMakeFiles 0
+.PHONY : E03_sol/CMakeFiles/E03_sol.dir/rule
+
+# Convenience name for target.
+E03_sol: E03_sol/CMakeFiles/E03_sol.dir/rule
+.PHONY : E03_sol
+
+# clean rule for target.
+E03_sol/CMakeFiles/E03_sol.dir/clean:
+	$(MAKE) $(MAKESILENT) -f E03_sol/CMakeFiles/E03_sol.dir/build.make E03_sol/CMakeFiles/E03_sol.dir/clean
+.PHONY : E03_sol/CMakeFiles/E03_sol.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

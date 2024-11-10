@@ -34,7 +34,6 @@ int main(int argc, char ** argv){
     int count;
 
     powerset(0,sol,4,0,gr);
-
     fclose(fp);
 
     return 0;

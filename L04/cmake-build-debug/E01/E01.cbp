@@ -5,7 +5,7 @@
 		<Option title="E01"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\E01\;CMake Files\E02\;CMake Files\E03\;CMake Files\E04\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\E01\;CMake Files\E02\;CMake Files\E03\;CMake Files\E03_sol\;CMake Files\E04\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/Users/diegocampanale/CLionProjects/ASD_24/L04/cmake-build-debug/E01"/>
@@ -72,6 +72,9 @@
 		</Unit>
 		<Unit filename="/Users/diegocampanale/CLionProjects/ASD_24/L04/E03/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\E03\"/>
+		</Unit>
+		<Unit filename="/Users/diegocampanale/CLionProjects/ASD_24/L04/E03_sol/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\E03_sol\"/>
 		</Unit>
 		<Unit filename="/Users/diegocampanale/CLionProjects/ASD_24/L04/E04/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\E04\"/>

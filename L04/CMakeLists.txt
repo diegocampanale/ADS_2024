@@ -6,7 +6,7 @@ cmake_minimum_required(VERSION 3.0)
 set(LAB_NAME L04)
 #Add directory names here!
 #example set(DIRECTORIES E01 E02 E03)
-set(DIRECTORIES E01 E02 E03 E04)
+set(DIRECTORIES E01 E02 E03 E04 E03_sol)
 
 #-------NON USER SPACE-------#
 #Don't touch here unless you know what you are doing!

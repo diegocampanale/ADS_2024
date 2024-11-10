@@ -168,6 +168,19 @@ E04/fast:
 	$(MAKE) $(MAKESILENT) -f E04/CMakeFiles/E04.dir/build.make E04/CMakeFiles/E04.dir/build
 .PHONY : E04/fast
 
+#=============================================================================
+# Target rules for targets named E03_sol
+
+# Build rule for target.
+E03_sol: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 E03_sol
+.PHONY : E03_sol
+
+# fast build rule for target.
+E03_sol/fast:
+	$(MAKE) $(MAKESILENT) -f E03_sol/CMakeFiles/E03_sol.dir/build.make E03_sol/CMakeFiles/E03_sol.dir/build
+.PHONY : E03_sol/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -179,6 +192,7 @@ help:
 	@echo "... E01"
 	@echo "... E02"
 	@echo "... E03"
+	@echo "... E03_sol"
 	@echo "... E04"
 .PHONY : help
 

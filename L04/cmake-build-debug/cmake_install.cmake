@@ -43,6 +43,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/Users/diegocampanale/CLionProjects/ASD_24/L04/cmake-build-debug/E02/cmake_install.cmake")
   include("/Users/diegocampanale/CLionProjects/ASD_24/L04/cmake-build-debug/E03/cmake_install.cmake")
   include("/Users/diegocampanale/CLionProjects/ASD_24/L04/cmake-build-debug/E04/cmake_install.cmake")
+  include("/Users/diegocampanale/CLionProjects/ASD_24/L04/cmake-build-debug/E03_sol/cmake_install.cmake")
 
 endif()
 

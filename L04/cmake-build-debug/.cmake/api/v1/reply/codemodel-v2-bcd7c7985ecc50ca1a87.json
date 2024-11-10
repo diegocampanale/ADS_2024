@@ -11,7 +11,8 @@
 						1,
 						2,
 						3,
-						4
+						4,
+						5
 					],
 					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
 					"minimumCMakeVersion" : 
@@ -78,6 +79,21 @@
 					"source" : "E04",
 					"targetIndexes" : 
 					[
+						4
+					]
+				},
+				{
+					"build" : "E03_sol",
+					"jsonFile" : "directory-E03_sol-Debug-58d87b735a2eb0988ffb.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 5,
+					"source" : "E03_sol",
+					"targetIndexes" : 
+					[
 						3
 					]
 				}
@@ -91,7 +107,8 @@
 						1,
 						2,
 						3,
-						4
+						4,
+						5
 					],
 					"directoryIndexes" : 
 					[
@@ -144,6 +161,18 @@
 					"parentIndex" : 0,
 					"targetIndexes" : 
 					[
+						4
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						5
+					],
+					"name" : "E03_sol",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
 						3
 					]
 				}
@@ -170,6 +199,13 @@
 					"jsonFile" : "target-E03-Debug-ac7b9cdf26a9c90f5ef1.json",
 					"name" : "E03",
 					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "E03_sol::@49a21f1aa17fb28820fa",
+					"jsonFile" : "target-E03_sol-Debug-eb131aea67844aa97a93.json",
+					"name" : "E03_sol",
+					"projectIndex" : 5
 				},
 				{
 					"directoryIndex" : 4,

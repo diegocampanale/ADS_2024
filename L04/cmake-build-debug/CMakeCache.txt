@@ -252,6 +252,15 @@ E03_IS_TOP_LEVEL:STATIC=OFF
 E03_SOURCE_DIR:STATIC=/Users/diegocampanale/CLionProjects/ASD_24/L04/E03
 
 //Value Computed by CMake
+E03_sol_BINARY_DIR:STATIC=/Users/diegocampanale/CLionProjects/ASD_24/L04/cmake-build-debug/E03_sol
+
+//Value Computed by CMake
+E03_sol_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+E03_sol_SOURCE_DIR:STATIC=/Users/diegocampanale/CLionProjects/ASD_24/L04/E03_sol
+
+//Value Computed by CMake
 E04_BINARY_DIR:STATIC=/Users/diegocampanale/CLionProjects/ASD_24/L04/cmake-build-debug/E04
 
 //Value Computed by CMake
@@ -375,7 +384,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=5
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=6
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
