@@ -31,7 +31,7 @@ int printNode(Item val,FILE* fout);
 void strToLower(char *str);
 comando_e readCmd(char comandi[][MAXS]);
 void opt_print(link head);
-link opt_add(link head,char *buf);
+void opt_add(link *head,char *buf);
 link readFileIns(link head,FILE* fp);
 int confrontaDate(data_t data1, data_t data2);
 link newNode(Item val, link next);
@@ -45,6 +45,8 @@ void opt_extract(link head, char *buf);
 Item listExtrKeyP(link *hp,char *key);
 int isValidReadData(char *date_str, data_t *data1p, data_t *data2p);
 int isValidData(data_t data);
+void listExtrDataRange(link *hp,data_t data_start, data_t data_end);
+Item deleteNode(link *xp);
 
 
 int main(int argc, char ** argv){
@@ -67,7 +69,7 @@ int main(int argc, char ** argv){
 
         switch (cmd) {
             case r_add:
-                head = opt_add(head,buf);
+                opt_add(&head,buf);
                 break;
             case r_search:
                 opt_search(head,buf);
@@ -90,7 +92,6 @@ int main(int argc, char ** argv){
 
 // Funzioni switch //
 void opt_extract(link head, char *buf){
-
     if(isFormatCode(buf)){ // Caso inserimento codice
         Item extract = listExtrKeyP(&head,buf);
         if(isItemVoid(extract)) {
@@ -102,9 +103,7 @@ void opt_extract(link head, char *buf){
     }else{ // Caso inserimento data range
         data_t data_start, data_end;
         if(isValidReadData(buf,&data_start,&data_end)){
-            link extractList=NULL;
-            printf("data_start: %d/%d/%d\n",data_start.g,data_start.m,data_start.a);
-            printf("data_end: %d/%d/%d\n",data_end.g,data_end.m,data_end.a);
+            listExtrDataRange(&head,data_start,data_end); // funzione estrazione elementi in range data
         }else{ // Caso inserimento errato
             printf("Codice o Range date non valido\n");
         }
@@ -119,7 +118,7 @@ void opt_search(link head,char *buf){
         printNode(record,stdout);
 
 }
-link opt_add(link head,char *buf){
+void opt_add(link *hp,char *buf){
     if(buf[1]=='f'){ // opzione file
         sscanf(buf,"-f %s", buf);
 
@@ -128,12 +127,11 @@ link opt_add(link head,char *buf){
             printf("Errore apertura file!\n");
             exit(-1);
         }
-        head = readFileIns(head,fin);
+        *hp = readFileIns(*hp,fin);
         fclose(fin);
     }else{ // opzione keyboard
-        head = readFileIns(head,stdin);
+        *hp = readFileIns(*hp,stdin);
     }
-    return head;
 }
 void opt_print(link head){
     FILE *fout;
@@ -154,6 +152,33 @@ void opt_print(link head){
 }
 
 // Funzioni ausiliarie //
+void listExtrDataRange(link *hp,data_t data_start, data_t data_end){
+    link *xp, t;
+    int n_rimossi=0;
+    Item i = ITEMsetvoid();
+    for(xp=hp; *xp!= NULL; ){
+        // se rimuove elementi, il successore avrà puntatote xp e non va aggiornato
+        if(confrontaDate(data_start,(*xp)->val.data)<=0 && confrontaDate(data_end,(*xp)->val.data)>=0){
+            i = deleteNode(xp);
+            n_rimossi ++;
+            if (n_rimossi == 1) printf("Elementi rimossi:\n");
+            printNode(i,stdout);
+        }else{
+            xp = &((*xp)->next); // se non ha rimosso elementi aggiorna puntatore al successivo
+        }
+    }
+    if(isItemVoid(i)) {
+        printf("Elemento non trovato!\n");
+    }
+}
+Item deleteNode(link *xp){
+    Item i;
+    link t = *xp; // nodo da cancellare
+    *xp = (*xp)->next;
+    i = t->val;
+    free(t);
+    return i;
+}
 int isValidReadData(char *date_str, data_t *data1p, data_t *data2p){
     int matched = sscanf(date_str, "%02d/%02d/%04d %02d/%02d/%04d",&data1p->g,&data1p->m,&data1p->a,&data2p->g,&data2p->m,&data2p->a);
     if(matched==6 && confrontaDate(*data1p,*data2p)<=0 && isValidData(*data1p) && isValidData(*data2p)){
@@ -228,6 +253,11 @@ link readFileIns(link head,FILE* fp){
     if (fp == stdin){
         printf("Inserimento record anagrafica\n");
         printf("codice: "); scanf(" %s",record.codice);
+        Item item_check = searchByCode(head,record.codice);
+        if(!isItemVoid(item_check)) {
+            printf("Impossibile continuare. Codice già presente\n");
+            return head;
+        }
         printf("nome: "); scanf(" %s",record.nome);
         printf("cognome: "); scanf(" %s",record.cognome);
         printf("data di nascita <gg/mm/aaaa>: "); scanf(" %s",record.data_str);
@@ -236,7 +266,7 @@ link readFileIns(link head,FILE* fp){
         printf("città: "); scanf(" %s",record.citta);
         printf("cap: "); scanf(" %d",&record.cap);
 
-        head = SortListIns(head,record);
+        head = SortListIns(head, record);
     }else{
         while(fscanf(fp,"%s %s %s %s %s %s %d\n",record.codice, record.nome, record.cognome, record.data_str, record.via, record.citta, &record.cap) != EOF){
             sscanf (record.data_str,"%d/%d/%d", &record.data.g,&record.data.m,&record.data.a);
