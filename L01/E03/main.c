@@ -351,9 +351,9 @@ tabella_t leggiTabella(){
 }
 
 comando_e leggiComando(char comandi[][STR]){
-    comando_e cmd;
+    comando_e cmd;c
     int c=0, continua=0;
-    char riga[100], comando[STR];
+    char comando[STR];
 
     printf("Menu:\n- stampa [-f]\n- ordina_data\n- ordina_codice\n- ordina_partenza\n- ordina_arrivo\n- ricerca [stazione_partenza]\n- fine\n--> ");
     scanf("%s",comando); // read only cmd

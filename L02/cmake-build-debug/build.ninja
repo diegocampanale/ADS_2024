@@ -79,7 +79,7 @@ build cmake_object_order_depends_target_E01: phony || E01/CMakeFiles/E01.dir
 
 build E01/CMakeFiles/E01.dir/main.c.o: C_COMPILER__E01_unscanned_Debug /Users/diegocampanale/CLionProjects/ASD_24/L02/E01/main.c || cmake_object_order_depends_target_E01
   DEP_FILE = E01/CMakeFiles/E01.dir/main.c.o.d
-  FLAGS = -g -std=gnu99 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk -fcolor-diagnostics
+  FLAGS = -g -std=gnu99 -arch arm64 -fcolor-diagnostics
   OBJECT_DIR = E01/CMakeFiles/E01.dir
   OBJECT_FILE_DIR = E01/CMakeFiles/E01.dir
 
@@ -92,7 +92,7 @@ build E01/CMakeFiles/E01.dir/main.c.o: C_COMPILER__E01_unscanned_Debug /Users/di
 # Link the executable E01/E01
 
 build E01/E01: C_EXECUTABLE_LINKER__E01_Debug E01/CMakeFiles/E01.dir/main.c.o
-  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk
+  FLAGS = -g -arch arm64
   OBJECT_DIR = E01/CMakeFiles/E01.dir
   POST_BUILD = :
   PRE_LINK = cd /Users/diegocampanale/CLionProjects/ASD_24/L02/cmake-build-debug/E01 && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -E copy_directory /Users/diegocampanale/CLionProjects/ASD_24/L02/E01 /Users/diegocampanale/CLionProjects/ASD_24/L02/E01/../L02_export/E01/ && cd /Users/diegocampanale/CLionProjects/ASD_24/L02/cmake-build-debug/E01 && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -E remove /Users/diegocampanale/CLionProjects/ASD_24/L02/E01/../L02_export/E01/CMakeLists.txt && cd /Users/diegocampanale/CLionProjects/ASD_24/L02/cmake-build-debug
@@ -138,7 +138,7 @@ build cmake_object_order_depends_target_E02: phony || E02/CMakeFiles/E02.dir
 
 build E02/CMakeFiles/E02.dir/main.c.o: C_COMPILER__E02_unscanned_Debug /Users/diegocampanale/CLionProjects/ASD_24/L02/E02/main.c | /Users/diegocampanale/CLionProjects/ASD_24/L02/E02/mat.txt || cmake_object_order_depends_target_E02
   DEP_FILE = E02/CMakeFiles/E02.dir/main.c.o.d
-  FLAGS = -g -std=gnu99 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk -fcolor-diagnostics
+  FLAGS = -g -std=gnu99 -arch arm64 -fcolor-diagnostics
   OBJECT_DIR = E02/CMakeFiles/E02.dir
   OBJECT_FILE_DIR = E02/CMakeFiles/E02.dir
 
@@ -151,7 +151,7 @@ build E02/CMakeFiles/E02.dir/main.c.o: C_COMPILER__E02_unscanned_Debug /Users/di
 # Link the executable E02/E02
 
 build E02/E02: C_EXECUTABLE_LINKER__E02_Debug E02/CMakeFiles/E02.dir/main.c.o
-  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk
+  FLAGS = -g -arch arm64
   OBJECT_DIR = E02/CMakeFiles/E02.dir
   POST_BUILD = :
   PRE_LINK = cd /Users/diegocampanale/CLionProjects/ASD_24/L02/cmake-build-debug/E02 && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -E copy_directory /Users/diegocampanale/CLionProjects/ASD_24/L02/E02 /Users/diegocampanale/CLionProjects/ASD_24/L02/E02/../L02_export/E02/ && cd /Users/diegocampanale/CLionProjects/ASD_24/L02/cmake-build-debug/E02 && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -E remove /Users/diegocampanale/CLionProjects/ASD_24/L02/E02/../L02_export/E02/CMakeLists.txt && cd /Users/diegocampanale/CLionProjects/ASD_24/L02/cmake-build-debug/E02 && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -E copy_if_different /Users/diegocampanale/CLionProjects/ASD_24/L02/E02/./mat.txt /Users/diegocampanale/CLionProjects/ASD_24/L02/cmake-build-debug/E02/./mat.txt && cd /Users/diegocampanale/CLionProjects/ASD_24/L02/cmake-build-debug
@@ -197,7 +197,7 @@ build cmake_object_order_depends_target_E03: phony || E03/CMakeFiles/E03.dir
 
 build E03/CMakeFiles/E03.dir/main.c.o: C_COMPILER__E03_unscanned_Debug /Users/diegocampanale/CLionProjects/ASD_24/L02/E03/main.c | /Users/diegocampanale/CLionProjects/ASD_24/L02/E03/corse.txt || cmake_object_order_depends_target_E03
   DEP_FILE = E03/CMakeFiles/E03.dir/main.c.o.d
-  FLAGS = -g -std=gnu99 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk -fcolor-diagnostics
+  FLAGS = -g -std=gnu99 -arch arm64 -fcolor-diagnostics
   OBJECT_DIR = E03/CMakeFiles/E03.dir
   OBJECT_FILE_DIR = E03/CMakeFiles/E03.dir
 
@@ -210,7 +210,7 @@ build E03/CMakeFiles/E03.dir/main.c.o: C_COMPILER__E03_unscanned_Debug /Users/di
 # Link the executable E03/E03
 
 build E03/E03: C_EXECUTABLE_LINKER__E03_Debug E03/CMakeFiles/E03.dir/main.c.o
-  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk
+  FLAGS = -g -arch arm64
   OBJECT_DIR = E03/CMakeFiles/E03.dir
   POST_BUILD = :
   PRE_LINK = cd /Users/diegocampanale/CLionProjects/ASD_24/L02/cmake-build-debug/E03 && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -E copy_directory /Users/diegocampanale/CLionProjects/ASD_24/L02/E03 /Users/diegocampanale/CLionProjects/ASD_24/L02/E03/../L02_export/E03/ && cd /Users/diegocampanale/CLionProjects/ASD_24/L02/cmake-build-debug/E03 && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -E remove /Users/diegocampanale/CLionProjects/ASD_24/L02/E03/../L02_export/E03/CMakeLists.txt && cd /Users/diegocampanale/CLionProjects/ASD_24/L02/cmake-build-debug/E03 && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -E copy_if_different /Users/diegocampanale/CLionProjects/ASD_24/L02/E03/corse.txt /Users/diegocampanale/CLionProjects/ASD_24/L02/cmake-build-debug/E03/corse.txt && cd /Users/diegocampanale/CLionProjects/ASD_24/L02/cmake-build-debug

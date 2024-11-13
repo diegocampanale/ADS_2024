@@ -22,7 +22,7 @@ typedef struct{
     int rip_r;
     int rip_t;
     int rip_s;
-}ripetizioniR_t;
+}ripetizioniR_t; // forse è meglio usare enumerazione e vettore sfruttando come indici i nomi enumerati
 
 int test = 0; // debug
 int caso = 0; // debug

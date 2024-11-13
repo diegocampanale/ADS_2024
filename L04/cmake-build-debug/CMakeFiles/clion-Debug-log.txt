@@ -21,6 +21,6 @@ E02 will be built in the project
 E03 will be built in the project
 E04 will be built in the project
 E03_sol will be built in the project
--- Configuring done (0.0s)
+-- Configuring done (0.1s)
 -- Generating done (0.0s)
 -- Build files have been written to: /Users/diegocampanale/CLionProjects/ASD_24/L04/cmake-build-debug
