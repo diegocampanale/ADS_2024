@@ -138,12 +138,13 @@ link opt_add(link head,char *buf){
 void opt_print(link head){
     FILE *fout;
     int result;
-    if ((fout = fopen(OUTFILE_PATH, "w")) == NULL) {
+    if ((fout = fopen("ciao.txt", "w")) == NULL) {
         perror("Errore apertura file!");
         exit(-1);
     }
-    // result = printListR(head,fout); //   NON STAMPA SU out.txt //
-    result = printListR(head,stdout); // debug
+    fprintf(fout, "Test");
+    result = printListR(head,fout); //   NON STAMPA SU out.txt //
+    // result = printListR(head,stdout); // debug
     fclose(fout);
 
     if (result > 0){
@@ -306,11 +307,15 @@ int printListR(link h,FILE* fout){
     int cnt=0;
     if(h==NULL)
         return 0;
+    fprintf(fout, "Test2");
+
     cnt = printNode(h->val,fout);
     printListR(h->next,fout);
     return cnt;
 }
 int printNode(Item val,FILE* fout){
+    fprintf(fout, "Test3");
+
     return fprintf(fout,"%-15s %-15s %-15s %02d/%02d/%04d      %-20s %-15s     %05d\n",
            val.codice,
            val.nome,
