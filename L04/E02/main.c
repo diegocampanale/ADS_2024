@@ -4,7 +4,7 @@
 #include <ctype.h>
 
 #define INPUTFILE_PATH "anag1.txt"
-#define OUTFILE_PATH "out.txt"
+#define OUTFILE_PATH "/Users/diegocampanale/CLionProjects/ASD_24/L04/E02/out.txt"
 #define MAXS 50
 
 typedef enum {r_add, r_search, r_extract, r_print, r_exit} comando_e;
@@ -44,6 +44,7 @@ int isItemVoid(Item item);
 void opt_extract(link head, char *buf);
 Item listExtrKeyP(link *hp,char *key);
 int isValidReadData(char *date_str, data_t *data1p, data_t *data2p);
+int isValidData(data_t data);
 
 
 int main(int argc, char ** argv){
@@ -89,7 +90,6 @@ int main(int argc, char ** argv){
 
 // Funzioni switch //
 void opt_extract(link head, char *buf){
-
     if(isFormatCode(buf)){ // Caso inserimento codice
         Item extract = listExtrKeyP(&head,buf);
         if(isItemVoid(extract)) {
@@ -98,17 +98,22 @@ void opt_extract(link head, char *buf){
             printf("Elemento rimosso:\n");
             printNode(extract,stdout);
         }
-    }/*else{ // Caso inserimento data range
+    }else{ // Caso inserimento data range
         data_t data_start, data_end;
         if(isValidReadData(buf,&data_start,&data_end)){
             link extractList=NULL;
-            while (extractList!=NULL){
+            printf("data_start: %d/%d/%d\n",data_start.g,data_start.m,data_start.a);
+            printf("data_end: %d/%d/%d\n",data_end.g,data_end.m,data_end.a);
 
-            }
+            // completa...
+
+            //
+
+
         }else{ // Caso inserimento errato
-
+            printf("Codice o Range date non valido\n");
         }
-    }*/
+    }
 }
 void opt_search(link head,char *buf){
     Item record;
@@ -138,11 +143,10 @@ link opt_add(link head,char *buf){
 void opt_print(link head){
     FILE *fout;
     int result;
-    if ((fout = fopen("ciao.txt", "w")) == NULL) {
+    if ((fout = fopen(OUTFILE_PATH, "w")) == NULL) {
         perror("Errore apertura file!");
         exit(-1);
     }
-    fprintf(fout, "Test");
     result = printListR(head,fout); //   NON STAMPA SU out.txt //
     // result = printListR(head,stdout); // debug
     fclose(fout);
@@ -156,10 +160,17 @@ void opt_print(link head){
 
 // Funzioni ausiliarie //
 int isValidReadData(char *date_str, data_t *data1p, data_t *data2p){
-    int matched = sscanf(date_str, "%d/%d/%d %d/%d/%d",&data1p->g,&data1p->m,&data1p->a,&data2p->g,&data2p->m,&data2p->a);
-    if(matched==6 && confrontaDate(*data1p,*data2p)<=0){
+    int matched = sscanf(date_str, "%02d/%02d/%04d %02d/%02d/%04d",&data1p->g,&data1p->m,&data1p->a,&data2p->g,&data2p->m,&data2p->a);
+    if(matched==6 && confrontaDate(*data1p,*data2p)<=0 && isValidData(*data1p) && isValidData(*data2p)){
         return 1;
     }
+    return 0;
+}
+int isValidData(data_t data){
+    if(data.g > 0 && data.g<32)
+        if(data.m>0 && data.m<13)
+            if(data.a>0)
+                return 1;
     return 0;
 }
 Item listExtrKeyP(link *hp,char *key){
@@ -307,16 +318,14 @@ int printListR(link h,FILE* fout){
     int cnt=0;
     if(h==NULL)
         return 0;
-    fprintf(fout, "Test2");
 
     cnt = printNode(h->val,fout);
     printListR(h->next,fout);
     return cnt;
 }
 int printNode(Item val,FILE* fout){
-    fprintf(fout, "Test3");
 
-    return fprintf(fout,"%-15s %-15s %-15s %02d/%02d/%04d      %-20s %-15s     %05d\n",
+    return fprintf(fout,"%s %s %s %02d/%02d/%04d %s %s %d\n",
            val.codice,
            val.nome,
            val.cognome,
