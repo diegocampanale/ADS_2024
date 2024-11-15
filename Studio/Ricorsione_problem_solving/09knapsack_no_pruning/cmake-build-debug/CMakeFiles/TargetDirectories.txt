@@ -1,0 +1,3 @@
+/Users/diegocampanale/CLionProjects/ASD_24/Studio/Ricorsione_problem_solving/09knapsack_no_pruning/cmake-build-debug/CMakeFiles/09knapsack_no_pruning.dir
+/Users/diegocampanale/CLionProjects/ASD_24/Studio/Ricorsione_problem_solving/09knapsack_no_pruning/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/diegocampanale/CLionProjects/ASD_24/Studio/Ricorsione_problem_solving/09knapsack_no_pruning/cmake-build-debug/CMakeFiles/rebuild_cache.dir

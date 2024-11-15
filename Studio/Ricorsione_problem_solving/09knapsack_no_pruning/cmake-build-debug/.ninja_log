@@ -1,0 +1,6 @@
+# ninja log v5
+0	237	1731657131477795959	CMakeFiles/09knapsack_no_pruning.dir/Item.c.o	4f055b1d3b9aa0f2
+0	67	1731657217068943390	build.ninja	b312c26dc8f08df8
+237	451	1731657131692136892	09knapsack_no_pruning	a25434cedcb3d512
+0	236	1731657131478131583	CMakeFiles/09knapsack_no_pruning.dir/main.c.o	c2521b226d105e8e
+0	59	1731657217068943390	build.ninja	b312c26dc8f08df8
