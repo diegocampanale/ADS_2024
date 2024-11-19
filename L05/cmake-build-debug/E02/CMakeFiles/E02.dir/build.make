@@ -72,6 +72,7 @@ include E02/CMakeFiles/E02.dir/flags.make
 E02/CMakeFiles/E02.dir/main.c.o: E02/CMakeFiles/E02.dir/flags.make
 E02/CMakeFiles/E02.dir/main.c.o: /Users/diegocampanale/CLionProjects/ASD_24/L05/E02/main.c
 E02/CMakeFiles/E02.dir/main.c.o: /Users/diegocampanale/CLionProjects/ASD_24/L05/E02/board.txt
+E02/CMakeFiles/E02.dir/main.c.o: /Users/diegocampanale/CLionProjects/ASD_24/L05/E02/board2.txt
 E02/CMakeFiles/E02.dir/main.c.o: /Users/diegocampanale/CLionProjects/ASD_24/L05/E02/tiles.txt
 E02/CMakeFiles/E02.dir/main.c.o: E02/CMakeFiles/E02.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/diegocampanale/CLionProjects/ASD_24/L05/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object E02/CMakeFiles/E02.dir/main.c.o"
@@ -99,6 +100,7 @@ E02/E02: E02/CMakeFiles/E02.dir/link.txt
 	cd /Users/diegocampanale/CLionProjects/ASD_24/L05/cmake-build-debug/E02 && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -E copy_directory /Users/diegocampanale/CLionProjects/ASD_24/L05/E02 /Users/diegocampanale/CLionProjects/ASD_24/L05/E02/../L05_export/E02/
 	cd /Users/diegocampanale/CLionProjects/ASD_24/L05/cmake-build-debug/E02 && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -E remove /Users/diegocampanale/CLionProjects/ASD_24/L05/E02/../L05_export/E02/CMakeLists.txt
 	cd /Users/diegocampanale/CLionProjects/ASD_24/L05/cmake-build-debug/E02 && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -E copy_if_different /Users/diegocampanale/CLionProjects/ASD_24/L05/E02/board.txt /Users/diegocampanale/CLionProjects/ASD_24/L05/cmake-build-debug/E02/board.txt
+	cd /Users/diegocampanale/CLionProjects/ASD_24/L05/cmake-build-debug/E02 && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -E copy_if_different /Users/diegocampanale/CLionProjects/ASD_24/L05/E02/board2.txt /Users/diegocampanale/CLionProjects/ASD_24/L05/cmake-build-debug/E02/board2.txt
 	cd /Users/diegocampanale/CLionProjects/ASD_24/L05/cmake-build-debug/E02 && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -E copy_if_different /Users/diegocampanale/CLionProjects/ASD_24/L05/E02/tiles.txt /Users/diegocampanale/CLionProjects/ASD_24/L05/cmake-build-debug/E02/tiles.txt
 	cd /Users/diegocampanale/CLionProjects/ASD_24/L05/cmake-build-debug/E02 && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/E02.dir/link.txt --verbose=$(VERBOSE)
 
