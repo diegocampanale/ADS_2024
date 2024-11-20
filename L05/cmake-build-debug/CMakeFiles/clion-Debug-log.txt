@@ -30,6 +30,6 @@ CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
 -- Detecting CXX compile features - done
 E01 will be built in the project
 E02 will be built in the project
--- Configuring done (1.2s)
+-- Configuring done (1.0s)
 -- Generating done (0.0s)
 -- Build files have been written to: /Users/diegocampanale/CLionProjects/ASD_24/L05/cmake-build-debug
