@@ -1,0 +1,123 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2
+					],
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0"
+					},
+					"projectIndex" : 0,
+					"source" : "."
+				},
+				{
+					"build" : "E01",
+					"jsonFile" : "directory-E01-Debug-d50e6af6e34236d9b9b5.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "E01",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"build" : "E02",
+					"jsonFile" : "directory-E02-Debug-f84dfe4cd3877f6a1236.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 2,
+					"source" : "E02",
+					"targetIndexes" : 
+					[
+						1
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1,
+						2
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "L05"
+				},
+				{
+					"directoryIndexes" : 
+					[
+						1
+					],
+					"name" : "E01",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						2
+					],
+					"name" : "E02",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						1
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 1,
+					"id" : "E01::@004b98004f6ebb1ce50b",
+					"jsonFile" : "target-E01-Debug-4dd7b46cbcd596abe3ea.json",
+					"name" : "E01",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "E02::@be1aa9bde16c250c1700",
+					"jsonFile" : "target-E02-Debug-3a04d88dce20ecdcdf17.json",
+					"name" : "E02",
+					"projectIndex" : 2
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/s325040/CLionProjects/ADS_2024/L05/cmake-build-debug",
+		"source" : "C:/Users/s325040/CLionProjects/ADS_2024/L05"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 5
+	}
+}

@@ -1,0 +1,4 @@
+Cannot generate into C:\Users\s325040\CLionProjects\ADS_2024\L03\cmake-build-debug
+It is already used for project \Users\diegocampanale\CLionProjects\ASD_24\L03
+
+Please either delete it manually or select another generation directory
