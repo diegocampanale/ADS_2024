@@ -159,13 +159,10 @@ void giocaR(int pos, tiles val, cell_sol *sol, int*mark, board scacc, cell_sol *
             printf("\n");
         }
         printf("\n");*/
-<<<<<<< HEAD
         /*stampaScacchiera(scacc,sol,val);
         printf("Soluzione: ");
-=======
         // stampaScacchiera(scacc,sol,val);
         /*printf("Soluzione: ");
->>>>>>> refs/remotes/origin/main
         for(i=0;i<val.n_tess;i++) printf(" %d", sol[i].tess);
         printf("\n");*/
         punteggio = calcolaPunt(0,sol,val,scacc.nr,scacc.nc,p_righe,p_colonne,0);
@@ -181,11 +178,8 @@ void giocaR(int pos, tiles val, cell_sol *sol, int*mark, board scacc, cell_sol *
 
         if(punteggio>(*best_punt)){ // condizione di ottimalità
             //stampaScacchiera(scacc,sol,val);
-<<<<<<< HEAD
             //printf("Punteggio: %d\n ",punteggio);
-=======
             // printf("Punteggio: %d\n ",punteggio);
->>>>>>> refs/remotes/origin/main
             *best_punt = punteggio;
             for(i=0;i<val.n_tess;i++){
                 best_sol[i].tess = sol[i].tess;
