@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define INPUT_BOARD "board2.txt"
+#define INPUT_BOARD "board.txt"
 #define INPUT_TILES "tiles.txt"
 
 typedef struct{
@@ -101,9 +101,9 @@ int main(int argc, char ** argv){
     }
     fclose(f_scacchiera);
 
-    printf("Soluzione: ");
-    for(i=0;i<tessere.n_tess;i++) printf(" %d", sol[i].tess);
-    printf("\n");
+    // printf("Soluzione: ");
+    // for(i=0;i<tessere.n_tess;i++) printf(" %d", sol[i].tess);
+    // printf("\n");
     giocaR(0,tessere,sol,mark,scacchiera,b_sol,&b_punt);
     printf("Migliore soluzione con punteggio massimo %d: \n",b_punt);
     stampaScacchiera(scacchiera,b_sol,tessere);
@@ -159,24 +159,24 @@ void giocaR(int pos, tiles val, cell_sol *sol, int*mark, board scacc, cell_sol *
             printf("\n");
         }
         printf("\n");*/
-        stampaScacchiera(scacc,sol,val);
+        /*stampaScacchiera(scacc,sol,val);
         printf("Soluzione: ");
         for(i=0;i<val.n_tess;i++) printf(" %d", sol[i].tess);
-        printf("\n");
+        printf("\n");*/
         punteggio = calcolaPunt(0,sol,val,scacc.nr,scacc.nc,p_righe,p_colonne,0);
         // printf("Punteggio: %d\n ",punteggio);
-        printf("Punt_righe: ");
+        /*printf("Punt_righe: ");
         for(i=0;i<scacc.nr;i++) printf("%c ",p_righe[i].color);
         for(i=0;i<scacc.nr;i++) printf("%d ",p_righe[i].punt);
         printf("\nPunt_colonne: ");
         for(i=0;i<scacc.nc;i++) printf("%c ",p_colonne[i].color);
         for(i=0;i<scacc.nc;i++) printf("%d ",p_colonne[i].punt);
         printf("\n");
-        printf("Totale: %d\n ",punteggio);
+        printf("Totale: %d\n ",punteggio);*/
 
         if(punteggio>(*best_punt)){ // condizione di ottimalità
-            stampaScacchiera(scacc,sol,val);
-            printf("Punteggio: %d\n ",punteggio);
+            //stampaScacchiera(scacc,sol,val);
+            //printf("Punteggio: %d\n ",punteggio);
             *best_punt = punteggio;
             for(i=0;i<val.n_tess;i++){
                 best_sol[i].tess = sol[i].tess;
