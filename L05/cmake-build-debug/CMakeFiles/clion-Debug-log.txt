@@ -13,6 +13,6 @@
 -- Detecting CXX compile features - done
 E01 will be built in the project
 E02 will be built in the project
--- Configuring done (2.6s)
--- Generating done (0.1s)
+-- Configuring done (2.0s)
+-- Generating done (0.0s)
 -- Build files have been written to: C:/Users/s325040/CLionProjects/ADS_2024/L05/cmake-build-debug
