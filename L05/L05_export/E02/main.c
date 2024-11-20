@@ -56,7 +56,7 @@ int main(int argc, char ** argv){
     }
     fscanf(f_tessere,"%d\n", &tessere.n_tess);
     tessere.tess = (tile_t *) malloc(tessere.n_tess*sizeof(tile_t));
-    mark = (int *)malloc(tessere.n_tess*sizeof(int));
+    mark = (int *)calloc(tessere.n_tess,sizeof(int));
     for(i=0; i<tessere.n_tess; i++){
         fscanf(f_tessere,"%c %d %c %d\n", &tessere.tess[i].col1, &tessere.tess[i].val1, &tessere.tess[i].col2,&tessere.tess[i].val2);
     }
@@ -96,6 +96,7 @@ int main(int argc, char ** argv){
                 b_sol[i*scacchiera.nr+j].tess = -1;
                 b_sol[i*scacchiera.nr+j].rot = -1;
                 b_sol[i*scacchiera.nr+j].fix = 0;
+
             }
         }
     }
