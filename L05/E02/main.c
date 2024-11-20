@@ -56,7 +56,7 @@ int main(int argc, char ** argv){
     }
     fscanf(f_tessere,"%d\n", &tessere.n_tess);
     tessere.tess = (tile_t *) malloc(tessere.n_tess*sizeof(tile_t));
-    mark = (int *)malloc(tessere.n_tess*sizeof(tile_t));
+    mark = (int *)malloc(tessere.n_tess*sizeof(int));
     for(i=0; i<tessere.n_tess; i++){
         fscanf(f_tessere,"%c %d %c %d\n", &tessere.tess[i].col1, &tessere.tess[i].val1, &tessere.tess[i].col2,&tessere.tess[i].val2);
     }
@@ -69,9 +69,9 @@ int main(int argc, char ** argv){
         exit(-1);
     }
     fscanf(f_scacchiera,"%d %d\n", &scacchiera.nr, &scacchiera.nc);
-    scacchiera.celle = (cell **) malloc(scacchiera.nr*sizeof(tile_t *));
-    sol = (cell_sol *) malloc((scacchiera.nr*sizeof(cell_sol)));
-    b_sol = (cell_sol *) malloc((scacchiera.nr*sizeof(cell_sol)));
+    scacchiera.celle = (cell **) malloc(scacchiera.nr*sizeof(cell *));
+    sol = (cell_sol *) malloc((scacchiera.nr*scacchiera.nc*sizeof(cell_sol)));
+    b_sol = (cell_sol *) malloc((scacchiera.nr*scacchiera.nc*sizeof(cell_sol)));
     for(i=0; i< scacchiera.nr; i++){ // ogni riga
         scacchiera.celle[i] = (cell *) malloc(scacchiera.nc*sizeof(cell));
         for(j=0;j<scacchiera.nc;j++){
@@ -159,24 +159,24 @@ void giocaR(int pos, tiles val, cell_sol *sol, int*mark, board scacc, cell_sol *
             printf("\n");
         }
         printf("\n");*/
-        stampaScacchiera(scacc,sol,val);
-        printf("Soluzione: ");
+        // stampaScacchiera(scacc,sol,val);
+        /*printf("Soluzione: ");
         for(i=0;i<val.n_tess;i++) printf(" %d", sol[i].tess);
-        printf("\n");
+        printf("\n");*/
         punteggio = calcolaPunt(0,sol,val,scacc.nr,scacc.nc,p_righe,p_colonne,0);
         // printf("Punteggio: %d\n ",punteggio);
-        printf("Punt_righe: ");
+        /*printf("Punt_righe: ");
         for(i=0;i<scacc.nr;i++) printf("%c ",p_righe[i].color);
         for(i=0;i<scacc.nr;i++) printf("%d ",p_righe[i].punt);
         printf("\nPunt_colonne: ");
         for(i=0;i<scacc.nc;i++) printf("%c ",p_colonne[i].color);
         for(i=0;i<scacc.nc;i++) printf("%d ",p_colonne[i].punt);
         printf("\n");
-        printf("Totale: %d\n ",punteggio);
+        printf("Totale: %d\n ",punteggio);*/
 
         if(punteggio>(*best_punt)){ // condizione di ottimalità
-            stampaScacchiera(scacc,sol,val);
-            printf("Punteggio: %d\n ",punteggio);
+            //stampaScacchiera(scacc,sol,val);
+            // printf("Punteggio: %d\n ",punteggio);
             *best_punt = punteggio;
             for(i=0;i<val.n_tess;i++){
                 best_sol[i].tess = sol[i].tess;
@@ -353,17 +353,22 @@ int calcolaPunt(int pos, cell_sol *sol, tiles val, int nr, int nc, punt_t *punt_
 void stampaScacchiera(board scacchiera, cell_sol *sol, tiles tessere){
     int i, j,kn, z;
 
-    char cella_orizz[11][20] = {
+
+    char* cella_orizz[11] = {
             "      +----+      ",
-            "      |  ", " |      ",
+            "      |  ",
+            " |      ",
             " +----+----+----+ ",
-            " |  " ,"        "," | ",
+            " |  " ,
+            "        ",
+            " | ",
             " +----+----+----+ ",
-            "      | ", " |      ",
+            "      | ",
+            " |      ",
             "      +----+      ",
     };
 
-    char cella_vert[11][20] = {
+    char* cella_vert[11] = {
             "      +----+      ",
             "      |  "," |      ",
             " +----+    +----+ ",
@@ -372,7 +377,7 @@ void stampaScacchiera(board scacchiera, cell_sol *sol, tiles tessere){
             "      | "," |      ",
             "      +----+      ",
     };
-    char cella_vuota[7][20] = {
+    char* cella_vuota[7] = {
             " +              + ",
             "                  ",
             "                  ",
@@ -385,6 +390,9 @@ void stampaScacchiera(board scacchiera, cell_sol *sol, tiles tessere){
     int *ko = calloc(scacchiera.nc,sizeof(int));
     int *kv = calloc(scacchiera.nc,sizeof(int));
 
+/*    for(i=0; i<11;i++)
+        printf("%s\n",cella_orizz[i]);*/
+
     for(i=0; i<scacchiera.nr;i++){
         for(z=0; z<scacchiera.nc; z++) {
             ko[z] = 0;
@@ -394,7 +402,9 @@ void stampaScacchiera(board scacchiera, cell_sol *sol, tiles tessere){
             for (j = 0; j < scacchiera.nc; j++) {
                 if (scacchiera.celle[i][j].fix == 1) { // celle iniziali di gioco
                     if (scacchiera.celle[i][j].rot == 1) {
+                        //printf("kv[j]: %d \n",kv[j]);
                         if (kv[j] == 1) {
+                            //printf("%c\n",scacchiera.celle[i][j].ptess->col1);
                             printf("%s%c%s", cella_vert[kv[j]++], scacchiera.celle[i][j].ptess->col1,cella_vert[kv[j]++]);
                         } else if (kv[j] == 8) {
                             printf("%s%02d%s", cella_vert[kv[j]++], scacchiera.celle[i][j].ptess->val1,cella_vert[kv[j]++]);
@@ -405,15 +415,16 @@ void stampaScacchiera(board scacchiera, cell_sol *sol, tiles tessere){
                         }
                     }
                     else if (scacchiera.celle[i][j].rot == 0) {
+                        // printf("ko[j]: %d \n",ko[j]);
                         if (ko[j] == 1) {
-                            printf("%s%c%s", cella_orizz[ko[j]++], (char)scacchiera.celle[i][j].ptess->col2,
-                                   cella_orizz[ko[j]++]);
+                            printf("%s%c%s", cella_orizz[ko[j]++], (char)scacchiera.celle[i][j].ptess->col2, cella_orizz[ko[j]++]);
                         } else if (ko[j] == 8) {
                             printf("%s%02d%s", cella_orizz[ko[j]++], scacchiera.celle[i][j].ptess->val2,
                                    cella_orizz[ko[j]++]);
                         } else if (ko[j] == 4) {
                             printf("%s%c%s%02d%s", cella_orizz[ko[j]++], (char)scacchiera.celle[i][j].ptess->col1,cella_orizz[ko[j]++], scacchiera.celle[i][j].ptess->val1, cella_orizz[ko[j]++]);
                         } else {
+                            //puts(cella_orizz[ko[j]]);
                             printf("%s", cella_orizz[ko[j]++]);
                         }
                     }
