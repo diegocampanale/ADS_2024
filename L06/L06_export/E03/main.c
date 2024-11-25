@@ -1,14 +1,16 @@
 #include <stdio.h>
+#include "pg.h"
+#include "inv.h"
 
-#define INPUTFILE_PATH "./in.txt"
+#define INPUTFILE_PATH "pg.txt"
 
 int main(int argc, char ** argv){
-    char buf[100];
-    FILE *fp = fopen(INPUTFILE_PATH, "r");
-    fgets(buf, 100,fp);
 
-    printf("Hello Template!\n");
-    printf("%s", buf);
+    tabPg_t tPg;
+    tabInv_t tInv;
+    leggiFilePG(INPUTFILE_PATH,&tPg);
+    printf("\n");
+    leggiFileInv("inventario.txt",&tInv);
 
     return 0;
 }

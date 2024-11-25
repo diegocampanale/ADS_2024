@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define INPUTFILE_PATH "val0.txt"
+#define INPUTFILE_PATH "val3.txt"
 
 void solve(int *val, int n);
 int solveR(int *val, int *opt, int n, int k);
@@ -10,7 +10,7 @@ void solveDP(int *val, int n);
 void displaySol(int *val, int *opt, int n);
 
 int main(int argc, char ** argv){
-    int n,i,k;
+    int n,i;
     int *val;
 
     FILE *fp = fopen(INPUTFILE_PATH, "r");
@@ -35,20 +35,18 @@ int main(int argc, char ** argv){
 
 void solve(int *val, int n){
     int *opt;
-    opt = (int *) calloc((n+1),sizeof(int));
+    opt = calloc((n+1),sizeof(int));
     printf("Soluzione ricorsiva:\n");
     printf("Massima popolazione coperta: %d\n", solveR(val,opt,n,n));
     free(opt);
 }
 
 int solveR(int *val, int *opt, int n, int k){
-    if (k==0){
+    if (k==0)
         return 0;
-    }
-    if (k==1){
+    if (k==1)
         return val[1];
-    }
-    return max(solveR(val,opt,n,k-1), solveR(val,opt,n,k-1)+val[k]);
+    return max(solveR(val,opt,n,k-1), solveR(val,opt,n,k-2) + val[k]);
 }
 int max(int n1, int n2){
     if(n1>n2)
@@ -57,25 +55,23 @@ int max(int n1, int n2){
 }
 
 void solveDP(int *val, int n){
-    int i, *opt;
-    opt = (int *) calloc((n+1),sizeof(int));
+    int i,j, *opt;
+    opt = calloc((n+1),sizeof(int));
     opt[1] = val[1];
-    for(i=2;i<=n;i++){
-        if(opt[i-1]>opt[i-2]+val[i]){
+    for (i=2; i<=n; i++) {
+        if (opt[i-1] > opt[i-2]+val[i])
             opt[i] = opt[i-1];
-        }else{
-            opt[i] = opt[i-1]+val[i];
-        }
+        else
+            opt[i] = opt[i-2] + val[i];
     }
-
-    printf("Soluzione con Programmazione Dinamica:\n");
-    printf("Massima popolazione coperta: %d\n",opt[n]);
-    displaySol(opt,val,n);
+    printf("Dynamic programming solution: ");
+    printf("maximum population covered %d\n", opt[n]);
+    displaySol(val, opt, n);
 }
 
 void displaySol(int *val, int *opt, int n){
     int i,j,*sol;
-    sol = calloc(n,sizeof(int));
+    sol = calloc(n+1,sizeof(int));
     sol[1] = 1;
     i=n;
     while (i>=2){
@@ -86,16 +82,15 @@ void displaySol(int *val, int *opt, int n){
         }else if (opt[i] == opt[i-2]+val[i]){
             sol[i] = 1;
             sol[i-1] = 0;
-            i--;
+            i-=2;
         }
-        i--;
     }
     for(i=1; i<=n; i++){
         if(sol[i]){
             printf("%d ",val[i]);
         }
-        printf("\n");
     }
+    printf("\n");
 
 }
 

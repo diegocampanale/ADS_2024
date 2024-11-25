@@ -1,0 +1,4 @@
+/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/Applications/CLion.app/Contents/bin/ninja/mac/aarch64/ninja -G Ninja -S /Users/diegocampanale/CLionProjects/ASD_24/Studio/Ricorsione_problem_solving/Programmazione_dinamica/catena_matrici -B /Users/diegocampanale/CLionProjects/ASD_24/Studio/Ricorsione_problem_solving/Programmazione_dinamica/catena_matrici/cmake-build-debug
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /Users/diegocampanale/CLionProjects/ASD_24/Studio/Ricorsione_problem_solving/Programmazione_dinamica/catena_matrici/cmake-build-debug

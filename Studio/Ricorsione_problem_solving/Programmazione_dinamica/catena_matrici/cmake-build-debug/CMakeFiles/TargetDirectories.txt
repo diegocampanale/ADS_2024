@@ -1,0 +1,3 @@
+/Users/diegocampanale/CLionProjects/ASD_24/Studio/Ricorsione_problem_solving/Programmazione_dinamica/catena_matrici/cmake-build-debug/CMakeFiles/catena_matrici.dir
+/Users/diegocampanale/CLionProjects/ASD_24/Studio/Ricorsione_problem_solving/Programmazione_dinamica/catena_matrici/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/diegocampanale/CLionProjects/ASD_24/Studio/Ricorsione_problem_solving/Programmazione_dinamica/catena_matrici/cmake-build-debug/CMakeFiles/rebuild_cache.dir
