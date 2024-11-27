@@ -1,41 +1,21 @@
-//
-// Created by Diego Campanale on 22/11/24.
-//
-
 #ifndef PG_H
 #define PG_H
 
 #include <stdio.h>
 #include "inv.h"
 
-#define MAXS 50
-#define MAXC 50
 
-typedef struct{
-    char codice[MAXC];
-    char nome[MAXS];
-    char classe[MAXS];
-    int *equip;
-    struct{
-        unsigned int hp, mp,atk,def,mag,spr;
-    }stat;
-}pg_t;
+typedef struct tabEquip_s tabEquip_t;
+typedef struct pg_s pg_t;
+typedef struct nodePg_s *linkPg, nodePg_t;
+typedef struct tabPg_s tabPg_t;
 
-typedef struct node_s *linkPg, nodePg_t;
-typedef struct node_s{
-    pg_t pg;
-    linkPg next;
-};
-
-typedef struct{
-    linkPg headPg;
-    linkPg tailPg;
-    int nPg;
-}tabPg_t;
-
-void leggiFilePG(char *nomefile, tabPg_t *tabPg);
-int leggiPG(FILE *fin, pg_t *pg);
+tabPg_t *leggiFilePG(char *nomefile);
 void stampaPG(FILE *fin, pg_t *pg);
+void liberaPG(tabPg_t *tabPg);
+tabPg_t *allocaPG();
+int numPG(tabPg_t *tabPg);
+
 
 #endif // PG_H
 

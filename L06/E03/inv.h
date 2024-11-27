@@ -1,17 +1,18 @@
-//
-// Created by Diego Campanale on 22/11/24.
-//
+#ifndef INV_H
+#define INV_H
+
 #include <stdio.h>
-#define MAXL 50
+
 typedef struct inv_s inv_t;
 typedef struct tabInv_s tabInv_t;
 
 tabInv_t *leggiFileInv(char *nomefile);
-int cercaOggetto(tabInv_t *tabInv, char *nome);
+inv_t *cercaOggetto(tabInv_t *tabInv, char *nome);
 void stampaOggetto(FILE *fout, inv_t *ogg);
 tabInv_t *allocaInv(int max);
 void liberaInv(tabInv_t *tabInv);
 
+#endif //INV_H
 
 
 /*
@@ -34,8 +35,5 @@ void generaPartenzeArrivi (aeroporti_t *aeroporti, voli_t *voli);
 void scriviPartenzeArrivi (char *nomeFile, aeroporti_t *aeroporti, voli_t *voli);
 aeroporti_t *allocaAeroporti (int max);
 aeroporti_t *leggiAeroporti (char *nomeFile);
-
-
-
 
 */

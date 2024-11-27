@@ -1,10 +1,8 @@
-//
-// Created by Diego Campanale on 22/11/24.
-//
-
 #include <stdlib.h>
 #include <string.h>
 #include "inv.h"
+#define MAXL 51
+
 
 typedef struct modStat_s{
         int hp,mp,atk,def,mag,spr;
@@ -44,17 +42,24 @@ tabInv_t *leggiFileInv(char *nomefile){
         leggiOggetto(f,nome,tipo,&tabInv->vettInv[i].modStat);
         tabInv->vettInv[i].nome = strdup(nome);
         tabInv->vettInv[i].tipo = strdup(tipo);
-        stampaOggetto(stdout,&tabInv->vettInv[i]);
     }
     tabInv->nInv = nOgg;
     fclose(f);
     return tabInv;
 }
 static int leggiOggetto(FILE *fin, char *nome, char *tipo, modStat_t *stat){
-    return fscanf(fin, "%s %s %d %d %d %d %d %d\n", nome, tipo, &stat->hp, &stat->mp, &stat->atk, &stat->def, &stat->mag, &stat->spr);
+    return fscanf(fin, "%s %s %d %d %d %d %d %d\n",
+                  nome, tipo, &stat->hp, &stat->mp, &stat->atk, &stat->def, &stat->mag, &stat->spr);
 }
 void stampaOggetto(FILE *fout, inv_t *ogg){
-    fprintf(fout, "%s %s %d %d %d %d %d %d\n", ogg->nome, ogg->tipo, ogg->modStat.hp, ogg->modStat.mp, ogg->modStat.atk, ogg->modStat.def, ogg->modStat.mag, ogg->modStat.spr);
+    fprintf(fout, "nome: %s", ogg->nome);
+    fprintf(fout, "\ttipo: %s", ogg->tipo);
+    fprintf(fout, "\tHP: %d", ogg->modStat.hp);
+    fprintf(fout, "\tMP: %d", ogg->modStat.mp);
+    fprintf(fout, "\tATK: %d", ogg->modStat.atk);
+    fprintf(fout, "\tDEF: %d", ogg->modStat.def);
+    fprintf(fout, "\tMAG: %d", ogg->modStat.mag);
+    fprintf(fout, "\tSPR: %d\n", ogg->modStat.spr);
 }
 void liberaInv(tabInv_t *tabInv){
     int i;
@@ -65,17 +70,12 @@ void liberaInv(tabInv_t *tabInv){
     free(tabInv->vettInv);
     free(tabInv);
 }
-int cercaOggetto(tabInv_t *tabInv, char *nome){
-
-}
-/*
- * int cercaAeroportoC(aeroporti_t *aeroporti, char *codice) {
-  int i;
-  for (i=0; i<aeroporti->na; i++) {
-    if (strcmp(aeroporti->elenco[i].codice,codice)==0) {
-      return i;
+inv_t *cercaOggetto(tabInv_t *tabInv, char *nome){
+    int i;
+    for(i=0;i<tabInv->nInv;i++){
+        if(strcmp(tabInv->vettInv[i].nome,nome)==0){
+            return &tabInv->vettInv[i];
+        }
     }
-  }
-  return -1;
+    return NULL;
 }
- */
