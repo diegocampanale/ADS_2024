@@ -6,11 +6,13 @@
 
 int main(int argc, char ** argv){
 
-    tabPg_t tPg;
-    tabInv_t tInv;
-    leggiFilePG(INPUTFILE_PATH,&tPg);
+    tabPg_t *tPg;
+    tabInv_t *tInv;
+    leggiFilePG(INPUTFILE_PATH,tPg);
     printf("\n");
-    leggiFileInv("inventario.txt",&tInv);
+    tInv = leggiFileInv("inventario.txt");
+
+    liberaInv(tInv);
 
     return 0;
 }
