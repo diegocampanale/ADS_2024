@@ -1,8 +1,8 @@
-# Install script for directory: C:/Users/s325040/CLionProjects/ADS_2024/L06/E03
+# Install script for directory: /Users/diegocampanale/CLionProjects/ASD_24/L06/E03
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/L06")
+  set(CMAKE_INSTALL_PREFIX "/usr/local")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -34,6 +34,6 @@ endif()
 
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "V:/JetBrains/CLion 2023.2.1/bin/mingw/bin/objdump.exe")
+  set(CMAKE_OBJDUMP "/Library/Developer/CommandLineTools/usr/bin/objdump")
 endif()
 

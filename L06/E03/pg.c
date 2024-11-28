@@ -11,14 +11,16 @@ struct tabEquip_s{
     inv_t **vettEq;
 };
 
+typedef struct stat_s{
+    unsigned int hp, mp,atk,def,mag,spr;
+}stat_t;
+
 struct pg_s{
     char *codice;
     char *nome;
     char *classe;
     tabEquip_t *equip;
-    struct stat_s{
-        unsigned int hp, mp,atk,def,mag,spr;
-    }stat;
+    stat_t stat;
 };
 
 struct nodePg_s{
@@ -53,18 +55,18 @@ void stampaPG(FILE *fout, pg_t *pg){
     if(pg->stat.hp<0) fprintf(fout,"\tHP: %d",0);
     else fprintf(fout,"\tHP: %d",pg->stat.hp);
     if(pg->stat.mp<0) fprintf(fout,"\tMP: %d",0);
-    else fprintf(fout,"\tMP: %d",pg->stat.hp);
+    else fprintf(fout,"\tMP: %d",pg->stat.mp);
     if(pg->stat.atk<0) fprintf(fout,"\tATK: %d",0);
-    else fprintf(fout,"\tATK: %d",pg->stat.hp);
+    else fprintf(fout,"\tATK: %d",pg->stat.atk);
     if(pg->stat.def<0) fprintf(fout,"\tDEF: %d",0);
-    else fprintf(fout,"\tDEF: %d",pg->stat.hp);
+    else fprintf(fout,"\tDEF: %d",pg->stat.def);
     if(pg->stat.mag<0) fprintf(fout,"\tMAG: %d",0);
-    else fprintf(fout,"\tMAG: %d",pg->stat.hp);
+    else fprintf(fout,"\tMAG: %d",pg->stat.mag);
     if(pg->stat.spr<0) fprintf(fout,"\tSPR: %d",0);
-    else fprintf(fout,"\tSPR: %d\n",pg->stat.hp);
-    if (pg->equip->inUso>0){
+    else fprintf(fout,"\tSPR: %d\n",pg->stat.spr);
+    if (pg->equip!=NULL && pg->equip->inUso>0){
         fprintf(fout,"Equipaggiamento:\n");
-        stampaEquip(fout,&pg->equip);
+        stampaEquip(fout,pg->equip);
     }
     printf("\n");
 }
@@ -83,6 +85,11 @@ static tabEquip_t *allocaEquip(){
     return tabEquip;
 }
 
+static void liberaEquip(tabEquip_t *tabEquip){
+    free(tabEquip->vettEq);
+    free(tabEquip);
+}
+
 static linkPg newNodePG(pg_t val, linkPg next){
     linkPg x = malloc(sizeof(nodePg_t));
     if(x==NULL)
@@ -92,15 +99,15 @@ static linkPg newNodePG(pg_t val, linkPg next){
     return x;
 }
 
-static void listInsPG(tabPg_t *tabPg, pg_t pg){
-    if(tabPg->headPg == NULL){
-        tabPg->headPg = newNodePG(pg,tabPg->headPg);
-        tabPg->tailPg = tabPg->headPg;
+static int listInsPG(tabPg_t *tabPg, pg_t pg){
+    if(tabPg->tailPg == NULL){
+        tabPg->headPg = tabPg->tailPg = newNodePG(pg,NULL);
         tabPg->nPg++;
     }else{
-        tabPg->headPg = newNodePG(pg,tabPg->headPg);
+        tabPg->tailPg->next = newNodePG(pg,NULL);
         tabPg->nPg++;
     }
+    return 1;
 }
 
 tabPg_t *leggiFilePG(char *nomefile){
@@ -125,6 +132,130 @@ tabPg_t *leggiFilePG(char *nomefile){
     fclose(fp);
     return tabPg;
 }
+int aggiungiPG(tabPg_t *tabPg, char *codice, char *nome, char *classe, int hp,int mp,int atk,int def,int mag,int spr){
+    pg_t *pg = malloc(sizeof(pg_t));
 
+    pg->codice = strdup(codice);
+    pg->nome = strdup(nome);
+    pg->classe = strdup(classe);
+    pg->stat.hp = hp;
+    pg->stat.mp = mp;
+    pg->stat.atk = atk;
+    pg->stat.def = def;
+    pg->stat.mag = mag;
+    pg->stat.spr = spr;
+    int r = listInsPG(tabPg,*pg);
+    free(pg);
+    return r;
+}
+static void printListR(FILE* fout,linkPg h){
+    if(h==NULL)
+        return;
+    stampaPG(fout,&h->pg);
+    printListR(fout,h->next);
+}
 
+void stampaListPG(FILE *fout,tabPg_t *tabPg){
+    printListR(fout,tabPg->headPg);
+}
 
+int numPG(tabPg_t *tabPg){
+    return tabPg->nPg;
+}
+
+static pg_t PGsetVoid(){
+    pg_t pg;
+    pg.nome = NULL;
+    pg.codice = NULL;
+    pg.classe = NULL;
+    pg.stat.hp = pg.stat.mp = pg.stat.atk = pg.stat.def = pg.stat.mag = pg.stat.spr = 0;
+    pg.equip = NULL;
+    return pg;
+}
+
+int isVoidPg(pg_t *pg){
+    return (pg->codice==NULL);
+}
+
+pg_t *cercaPG(tabPg_t *tabPg, char *codice){
+    linkPg x;
+    for(x=tabPg->headPg; x!= NULL ; x = x->next){
+        if(strcmp(codice,x->pg.codice)==0){
+            return &x->pg;
+        }
+    }
+    return NULL;
+}
+
+static pg_t listExtrKeyP(linkPg *h,char *key){
+    linkPg *xp, t;
+    pg_t pg; pg = PGsetVoid();
+    for(xp=h; (*xp)!= NULL ; xp = &((*xp)->next) ){
+        if(strcmp(key,(*xp)->pg.codice)==0){
+            t = *xp;
+            *xp = (*xp)->next;
+            pg = t->pg;
+            free(t);
+            break;
+        }
+    }
+    return pg;
+}
+
+pg_t *rimuoviPG(tabPg_t *tabPg, char *codice){
+    pg_t extract;
+    extract = listExtrKeyP(&tabPg->headPg,codice);
+
+    if(isVoidPg(&extract)){
+        return 0;
+        printf("Nessun personaggio rimosso\n");
+    }else{
+
+        printf("Personaggio rimosso:\n");
+        stampaPG(stdout,&extract);
+    }
+}
+
+void updateStat(struct stat_s *stat, inv_t *ogg){
+    stat->hp+= getHP(ogg);
+    stat->mp+= getMP(ogg);
+    stat->atk+= getATK(ogg);
+    stat->def+= getDEF(ogg);
+    stat->mag+= getMAG(ogg);
+    stat->spr+= getSPR(ogg);
+}
+
+void aggiungiEquip(pg_t *pg, inv_t *ogg){
+    int i = pg->equip->inUso;
+    if(i<MAXE){
+        pg->equip->vettEq[i] = ogg;
+        updateStat(&pg->stat,ogg);
+        pg->equip->inUso++;
+    } else{
+        printf("Equipaggiamento al completo! Rimuovi un oggetto prima.\n");
+    }
+}
+
+inv_t *rimuoviEquip(pg_t *pg, int e){
+    inv_t *t = pg->equip->vettEq[e];
+    pg->equip->vettEq[e] = NULL;
+    return t;
+}
+
+static void liberaPG(pg_t *pg){
+    free(pg->codice);
+    free(pg->nome);
+    free(pg->classe);
+    if(pg->equip!=NULL)
+        liberaEquip(pg->equip);
+    free(pg);
+}
+
+void liberaListPG(tabPg_t *tabPg){
+    linkPg p, q;
+    for(p=tabPg->headPg; p!=NULL; p=q){
+        q = p->next;
+        liberaPG(&(p->pg));
+    }
+    free(tabPg);
+}

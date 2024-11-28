@@ -1,10 +1,8 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/E00.dir/main.c.obj"
-  "CMakeFiles/E00.dir/main.c.obj.d"
-  "E00.exe"
-  "E00.exe.manifest"
+  "CMakeFiles/E00.dir/main.c.o"
+  "CMakeFiles/E00.dir/main.c.o.d"
+  "E00"
   "E00.pdb"
-  "libE00.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.

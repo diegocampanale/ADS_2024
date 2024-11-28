@@ -5,8 +5,8 @@
 
 
 typedef struct modStat_s{
-        int hp,mp,atk,def,mag,spr;
-}modStat_t;
+    int hp,mp,atk,def,mag,spr;
+};
 
 struct inv_s{
     char *nome;
@@ -21,6 +21,26 @@ struct tabInv_s{
 };
 
 static int leggiOggetto(FILE *fin, char *nome, char *tipo, modStat_t *stat);
+
+int getHP(inv_t *ogg){
+    return ogg->modStat.hp;
+}
+int getMP(inv_t *ogg){
+    return ogg->modStat.mp;
+}
+int getATK(inv_t *ogg){
+    return ogg->modStat.atk;
+}
+int getDEF(inv_t *ogg){
+    return ogg->modStat.def;
+}
+int getMAG(inv_t *ogg){
+    return ogg->modStat.mag;
+}
+int getSPR(inv_t *ogg){
+    return ogg->modStat.spr;
+}
+
 tabInv_t *allocaInv(int max){
     tabInv_t *inv = malloc(sizeof(tabInv_t));
     inv->maxInv = max;
@@ -63,11 +83,13 @@ void stampaOggetto(FILE *fout, inv_t *ogg){
 }
 void liberaInv(tabInv_t *tabInv){
     int i;
-    for(i=0; i<tabInv->nInv; i++){
-        free(tabInv->vettInv[i].nome);
-        free(tabInv->vettInv[i].tipo);
+    if(tabInv != NULL){
+        for(i=0; i<(tabInv->nInv); i++){
+            free(tabInv->vettInv[i].nome);
+            free(tabInv->vettInv[i].tipo);
+        }
+        free(tabInv->vettInv);
     }
-    free(tabInv->vettInv);
     free(tabInv);
 }
 inv_t *cercaOggetto(tabInv_t *tabInv, char *nome){
@@ -78,4 +100,7 @@ inv_t *cercaOggetto(tabInv_t *tabInv, char *nome){
         }
     }
     return NULL;
+}
+int numINV(tabInv_t *tabInv){
+    return tabInv->nInv;
 }

@@ -8,9 +8,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "C:/Users/s325040/CLionProjects/ADS_2024/L06/E03/inv.c" "E03/CMakeFiles/E03.dir/inv.c.obj" "gcc" "E03/CMakeFiles/E03.dir/inv.c.obj.d"
-  "C:/Users/s325040/CLionProjects/ADS_2024/L06/E03/main.c" "E03/CMakeFiles/E03.dir/main.c.obj" "gcc" "E03/CMakeFiles/E03.dir/main.c.obj.d"
-  "C:/Users/s325040/CLionProjects/ADS_2024/L06/E03/pg.c" "E03/CMakeFiles/E03.dir/pg.c.obj" "gcc" "E03/CMakeFiles/E03.dir/pg.c.obj.d"
+  "/Users/diegocampanale/CLionProjects/ASD_24/L06/E03/inv.c" "E03/CMakeFiles/E03.dir/inv.c.o" "gcc" "E03/CMakeFiles/E03.dir/inv.c.o.d"
+  "/Users/diegocampanale/CLionProjects/ASD_24/L06/E03/main.c" "E03/CMakeFiles/E03.dir/main.c.o" "gcc" "E03/CMakeFiles/E03.dir/main.c.o.d"
+  "/Users/diegocampanale/CLionProjects/ASD_24/L06/E03/pg.c" "E03/CMakeFiles/E03.dir/pg.c.o" "gcc" "E03/CMakeFiles/E03.dir/pg.c.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

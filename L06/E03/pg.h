@@ -12,9 +12,16 @@ typedef struct tabPg_s tabPg_t;
 
 tabPg_t *leggiFilePG(char *nomefile);
 void stampaPG(FILE *fin, pg_t *pg);
-void liberaPG(tabPg_t *tabPg);
+void liberaListPG(tabPg_t *tabPg);
 tabPg_t *allocaPG();
 int numPG(tabPg_t *tabPg);
+int aggiungiPG(tabPg_t *tabPg, char *codice, char *nome, char *classe, int hp,int mp,int atk,int def,int mag,int spr);
+int rimuoviPG(tabPg_t *tabPg, char *codice);
+void stampaListPG(FILE *fout,tabPg_t *tabPg);
+pg_t *cercaPG(tabPg_t *tabPg, char *codice);
+void aggiungiEquip(pg_t *pg, inv_t *ogg);
+inv_t *rimuoviEquip(pg_t *pg, int e);
+
 
 
 #endif // PG_H

@@ -13,7 +13,7 @@
 						3,
 						4
 					],
-					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.0"
@@ -23,7 +23,7 @@
 				},
 				{
 					"build" : "E00",
-					"jsonFile" : "directory-E00-Debug-9dbfd09c1241205df392.json",
+					"jsonFile" : "directory-E00-Debug-a4a0b78d7c9999a1f5a8.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.0"
@@ -38,7 +38,7 @@
 				},
 				{
 					"build" : "E01",
-					"jsonFile" : "directory-E01-Debug-d50e6af6e34236d9b9b5.json",
+					"jsonFile" : "directory-E01-Debug-86c66632aeac4f23da58.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.0"
@@ -53,7 +53,7 @@
 				},
 				{
 					"build" : "E02",
-					"jsonFile" : "directory-E02-Debug-f84dfe4cd3877f6a1236.json",
+					"jsonFile" : "directory-E02-Debug-1d5b307a30e38ba92c07.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.0"
@@ -68,7 +68,7 @@
 				},
 				{
 					"build" : "E03",
-					"jsonFile" : "directory-E03-Debug-dc339ec42ba6e657c2d8.json",
+					"jsonFile" : "directory-E03-Debug-126221bf5bf85129d5fe.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.0"
@@ -153,28 +153,28 @@
 				{
 					"directoryIndex" : 1,
 					"id" : "E00::@90291ce161df3053c39e",
-					"jsonFile" : "target-E00-Debug-0a03d93c6195796c2fac.json",
+					"jsonFile" : "target-E00-Debug-6e9a26795b804ccdf2f1.json",
 					"name" : "E00",
 					"projectIndex" : 1
 				},
 				{
 					"directoryIndex" : 2,
 					"id" : "E01::@004b98004f6ebb1ce50b",
-					"jsonFile" : "target-E01-Debug-4dd7b46cbcd596abe3ea.json",
+					"jsonFile" : "target-E01-Debug-505855b9d99b7e8e7c14.json",
 					"name" : "E01",
 					"projectIndex" : 2
 				},
 				{
 					"directoryIndex" : 3,
 					"id" : "E02::@be1aa9bde16c250c1700",
-					"jsonFile" : "target-E02-Debug-3a04d88dce20ecdcdf17.json",
+					"jsonFile" : "target-E02-Debug-fdfa6425b0dd645a4589.json",
 					"name" : "E02",
 					"projectIndex" : 3
 				},
 				{
 					"directoryIndex" : 4,
 					"id" : "E03::@6ff99127d056254cfc1a",
-					"jsonFile" : "target-E03-Debug-fbf704c424c2396b4522.json",
+					"jsonFile" : "target-E03-Debug-702984b28aac258606b1.json",
 					"name" : "E03",
 					"projectIndex" : 4
 				}
@@ -184,12 +184,12 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/s325040/CLionProjects/ADS_2024/L06/cmake-build-debug",
-		"source" : "C:/Users/s325040/CLionProjects/ADS_2024/L06"
+		"build" : "/Users/diegocampanale/CLionProjects/ASD_24/L06/cmake-build-debug",
+		"source" : "/Users/diegocampanale/CLionProjects/ASD_24/L06"
 	},
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 5
+		"minor" : 6
 	}
 }

@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 
+typedef struct modStat_s modStat_t;
 typedef struct inv_s inv_t;
 typedef struct tabInv_s tabInv_t;
 
@@ -11,6 +12,14 @@ inv_t *cercaOggetto(tabInv_t *tabInv, char *nome);
 void stampaOggetto(FILE *fout, inv_t *ogg);
 tabInv_t *allocaInv(int max);
 void liberaInv(tabInv_t *tabInv);
+int getHP(inv_t *ogg);
+int getMP(inv_t *ogg);
+int getATK(inv_t *ogg);
+int getDEF(inv_t *ogg);
+int getMAG(inv_t *ogg);
+int getSPR(inv_t *ogg);
+int numINV(tabInv_t *tabInv);
+
 
 #endif //INV_H
 
