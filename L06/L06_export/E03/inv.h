@@ -7,8 +7,9 @@ typedef struct modStat_s modStat_t;
 typedef struct inv_s inv_t;
 typedef struct tabInv_s tabInv_t;
 
-tabInv_t *leggiFileInv(char *nomefile);
+int leggiFileInv(tabInv_t **pTabInv,char *nomefile);
 inv_t *cercaOggetto(tabInv_t *tabInv, char *nome);
+void stampaOggetti(FILE *fout, tabInv_t *tabInv);
 void stampaOggetto(FILE *fout, inv_t *ogg);
 tabInv_t *allocaInv(int max);
 void liberaInv(tabInv_t *tabInv);
@@ -19,6 +20,7 @@ int getDEF(inv_t *ogg);
 int getMAG(inv_t *ogg);
 int getSPR(inv_t *ogg);
 int numINV(tabInv_t *tabInv);
+char *getNameINV(inv_t *ogg);
 
 
 #endif //INV_H

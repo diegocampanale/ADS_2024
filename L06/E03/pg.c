@@ -27,13 +27,15 @@ struct nodePg_s{
     pg_t pg;
     linkPg next;
 };
+
 struct tabPg_s{
     linkPg headPg;
     linkPg tailPg;
     int nPg;
 };
 
-static void stampaEquip(FILE *f,tabEquip_t *equip){
+
+void stampaEquip(FILE *f,tabEquip_t *equip){
     int i;
     for(i=0;i<equip->inUso;i++){
         fprintf(f,"%d - ",i);
@@ -41,12 +43,16 @@ static void stampaEquip(FILE *f,tabEquip_t *equip){
         printf("\n");
     }
 }
-
-static int leggiPG(FILE *fin, char *codice, char *nome, char *classe, struct stat_s *stat){
-    return fscanf(fin, "%s %s %s %d %d %d %d %d %d\n",codice, nome, classe, &stat->hp,&stat->mp, &stat->atk,&stat->def, &stat->mag, &stat->spr);
+static int leggiPG(FILE *fin, char *codice, char *nome, char *classe, int *hp, int *mp, int *atk, int *def, int *mag, int *spr){
+    return fscanf(fin, "%s %s %s %d %d %d %d %d %d\n",codice, nome, classe, hp, mp, atk, def, mag, spr);
 }
-
+static void liberaEquip(tabEquip_t *tabEquip){
+    if(tabEquip==NULL) return;
+    free(tabEquip->vettEq);
+    free(tabEquip);
+}
 void stampaPG(FILE *fout, pg_t *pg){
+    printf("\n");
     //fprintf(fout,"%s %s %s %d %d %d %d %d %d\n",pg->codice, pg->nome, pg->classe, pg->stat.hp,pg->stat.mp, pg->stat.atk, pg->stat.def, pg->stat.mag, pg->stat.spr);
     fprintf(fout,"CODICE: %s\n",pg->codice);
     fprintf(fout,"NOME: %s\n",pg->nome);
@@ -64,89 +70,228 @@ void stampaPG(FILE *fout, pg_t *pg){
     else fprintf(fout,"\tMAG: %d",pg->stat.mag);
     if(pg->stat.spr<0) fprintf(fout,"\tSPR: %d",0);
     else fprintf(fout,"\tSPR: %d\n",pg->stat.spr);
-    if (pg->equip!=NULL && pg->equip->inUso>0){
+
+    if (pg->equip->inUso>0){
         fprintf(fout,"Equipaggiamento:\n");
         stampaEquip(fout,pg->equip);
     }
     printf("\n");
 }
-
-tabPg_t *allocaPG(){
+tabPg_t *allocaTabPG(){
     tabPg_t *tpg = malloc(sizeof(tabPg_t));
     tpg->headPg=NULL;
     tpg->tailPg=NULL;
     tpg->nPg=0;
     return tpg;
 }
+
 static tabEquip_t *allocaEquip(){
     tabEquip_t *tabEquip = malloc(sizeof(tabEquip_t));
+    if (tabEquip == NULL) return NULL;
     tabEquip->inUso=0;
+
     tabEquip->vettEq= malloc(MAXE*sizeof(inv_t *));
+    if (tabEquip->vettEq == NULL) {
+        fprintf(stderr, "Errore: impossibile allocare vettEq.\n");
+        free(tabEquip);  // Libera tabEquip in caso di errore
+        return NULL;
+    }
+    for (int i = 0; i < MAXE; i++) {
+        tabEquip->vettEq[i] = NULL;
+    }
     return tabEquip;
 }
+/*static void initPG(pg_t *pg) {
+    if (pg == NULL) return;  // Verifica che il puntatore sia valido
 
-static void liberaEquip(tabEquip_t *tabEquip){
-    free(tabEquip->vettEq);
-    free(tabEquip);
+    // Allocazione della memoria
+    pg->nome = malloc(MAXS);
+    pg->codice = malloc(MAXC);
+    pg->classe = malloc(MAXS);
+    pg->equip = allocaEquip();
+
+    // Verifica che l'allocazione sia avvenuta con successo
+    if (pg->nome == NULL || pg->codice == NULL || pg->classe == NULL || pg->equip == NULL) {
+        liberaPG(pg);  // Libera tutte le risorse allocate finora
+        return;
+    }
+
+    // Inizializza i campi (se necessario, per debug o utilizzo futuro)
+    pg->nome[0] = '\0';
+    pg->codice[0] = '\0';
+    pg->classe[0] = '\0';
+    pg->equip->inUso = 0;
+}*/
+static void initPG(pg_t *pg) {
+    if (pg == NULL) return;
+
+    if (pg->nome != NULL) free(pg->nome);
+    if (pg->codice != NULL) free(pg->codice);
+    if (pg->classe != NULL) free(pg->classe);
+    if (pg->equip != NULL) liberaEquip(pg->equip);
+
+    pg->nome = malloc(MAXS);
+    pg->codice = malloc(MAXC);
+    pg->classe = malloc(MAXS);
+    pg->equip = allocaEquip();
 }
 
-static linkPg newNodePG(pg_t val, linkPg next){
+/*void PGcpy(pg_t *dest, pg_t *src){
+    strcpy(dest->codice,src->codice);
+    strcpy(dest->nome,src->nome);
+    strcpy(dest->classe,src->classe);
+    dest->stat.hp = src->stat.hp;
+    dest->stat.mp = src->stat.mp;
+    dest->stat.atk = src->stat.atk;
+    dest->stat.def = src->stat.def;
+    dest->stat.mag= src->stat.mag;
+    dest->stat.spr = src->stat.spr;
+}*/
+
+void PGcpy(pg_t *dest, pg_t *src) {
+    if (dest == NULL || src == NULL) {
+        fprintf(stderr, "Errore: puntatore nullo passato a PGcpy.\n");
+        return;
+    }
+
+    // Libera i campi esistenti di dest per evitare memory leaks
+    if (dest->codice != NULL) free(dest->codice);
+    if (dest->nome != NULL) free(dest->nome);
+    if (dest->classe != NULL) free(dest->classe);
+
+    // Duplica i valori da src a dest
+    dest->codice = strdup(src->codice);
+    dest->nome = strdup(src->nome);
+    dest->classe = strdup(src->classe);
+
+    // Verifica che la duplicazione sia avvenuta con successo
+    if (dest->codice == NULL || dest->nome == NULL || dest->classe == NULL) {
+        fprintf(stderr, "Errore: duplicazione memoria fallita in PGcpy.\n");
+        return;
+    }
+
+    // Copia le statistiche
+    dest->stat.hp = src->stat.hp;
+    dest->stat.mp = src->stat.mp;
+    dest->stat.atk = src->stat.atk;
+    dest->stat.def = src->stat.def;
+    dest->stat.mag = src->stat.mag;
+    dest->stat.spr = src->stat.spr;
+}
+
+
+/*static linkPg newNodePG(pg_t val, linkPg next){
     linkPg x = malloc(sizeof(nodePg_t));
+    initPG(&x->pg);
     if(x==NULL)
         return NULL;
-    x->pg = val;
+    PGcpy(&x->pg,&val);
+    x->next = next;
+    return x;
+}*/
+static linkPg newNodePG(pg_t val, linkPg next) {
+    linkPg x = malloc(sizeof(nodePg_t));
+    if (x == NULL) {
+        return NULL;
+    }
+    x->pg.codice = strdup(val.codice);
+    x->pg.nome = strdup(val.nome);
+    x->pg.classe = strdup(val.classe);
+    x->pg.stat = val.stat;
+    x->pg.equip = allocaEquip(); // Assumi che l'equip sia vuoto
     x->next = next;
     return x;
 }
-
-static int listInsPG(tabPg_t *tabPg, pg_t pg){
-    if(tabPg->tailPg == NULL){
-        tabPg->headPg = tabPg->tailPg = newNodePG(pg,NULL);
-        tabPg->nPg++;
+static void listInsPG(tabPg_t **tabPg, pg_t *pg){
+    if((*tabPg)->headPg == NULL){
+        (*tabPg)->headPg = (*tabPg)->tailPg = newNodePG(*pg,NULL);
+        (*tabPg)->nPg++;
     }else{
-        tabPg->tailPg->next = newNodePG(pg,NULL);
-        tabPg->nPg++;
+        (*tabPg)->tailPg->next = newNodePG(*pg,NULL);
+        (*tabPg)->tailPg = (*tabPg)->tailPg->next;
+        (*tabPg)->nPg++;
     }
-    return 1;
+    printf("punt pg %p\n",pg);
+    printf("punt pg in lista %p\n",(*tabPg)->tailPg);
+
 }
-
-tabPg_t *leggiFilePG(char *nomefile){
-    tabPg_t *tabPg;
-    int i;
-    char codice[MAXC], nome[MAXS], classe[MAXS];
-    pg_t *pg = malloc(sizeof(pg_t));
-
+/*int leggiFilePG(tabPg_t **pTabPg,char *nomefile){
     FILE *fp = fopen(nomefile, "r");
-    if(fp==NULL) return NULL;
+    if(fp==NULL) return 0;
 
-    tabPg = allocaPG();
+
+    int i, cnt=0;
+    char codice[MAXC], nome[MAXS], classe[MAXS];
+    if(*pTabPg == NULL){
+        *pTabPg = allocaTabPG();
+    }
+    pg_t *pg = allocaPG(); // struct personaggio temporanea
 
     while (leggiPG(fp,codice,nome,classe,&pg->stat)!=EOF){
         pg->codice = strdup(codice);
         pg->nome = strdup(nome);
         pg->classe = strdup(classe);
-        pg->equip = allocaEquip();
-        listInsPG(tabPg,*pg);
+        cnt += aggiungiPG(pTabPg,pg);
+    }
+    liberaPG(pg); // libera struct personaggio temporanea
+    fclose(fp);
+    return cnt;
+}*/
+int leggiFilePG(tabPg_t **pTabPg, char *nomefile) {
+    FILE *fp = fopen(nomefile, "r");
+    if (fp == NULL) {
+        return 0;
+    }
+
+    int cnt = 0;
+    char codice[MAXC], nome[MAXS], classe[MAXS];
+    int hp,mp,atk,def,mag,spr;
+    if (*pTabPg == NULL) {
+        *pTabPg = allocaTabPG();
+    }
+
+    while (leggiPG(fp, codice, nome, classe, &hp,&mp,&atk,&def,&mag,&spr) != EOF) {
+        printf("letti da file: %s %s %s %d %d %d %d %d %d\n",codice, nome, classe, hp, mp, atk, def, mag, spr);
+        pg_t *pg = allocaPG();
+        setCodicePG(pg, codice);
+        setNomePG(pg, nome);
+        setClassePG(pg, classe);
+        setStatPG(pg,hp,mp,atk,def,mag,spr);
+        cnt += aggiungiPG(pTabPg, pg);
+        liberaPG(pg);
     }
 
     fclose(fp);
-    return tabPg;
+    return cnt;
 }
-int aggiungiPG(tabPg_t *tabPg, char *codice, char *nome, char *classe, int hp,int mp,int atk,int def,int mag,int spr){
-    pg_t *pg = malloc(sizeof(pg_t));
+/*int aggiungiPG(tabPg_t **tabPg, pg_t *pg){
+    pg_t *pgE = NULL;
+    if((*tabPg)->headPg!=NULL){
+        pgE = cercaPG(*tabPg,pg->codice); // restit puntatore a struct pg del nodo se esiste
+    }
+    if(pgE==NULL) {
+        listInsPG(tabPg, pg);
+        return 1;
+    }
+    // aggiorna personaggio
+    PGcpy(pgE,pg);
 
-    pg->codice = strdup(codice);
-    pg->nome = strdup(nome);
-    pg->classe = strdup(classe);
-    pg->stat.hp = hp;
-    pg->stat.mp = mp;
-    pg->stat.atk = atk;
-    pg->stat.def = def;
-    pg->stat.mag = mag;
-    pg->stat.spr = spr;
-    int r = listInsPG(tabPg,*pg);
-    free(pg);
-    return r;
+    return 0;
+}*/
+int aggiungiPG(tabPg_t **tabPg, pg_t *pg) {
+    if (pg == NULL || pg->codice == NULL) {
+        return 0;
+    }
+    if (*tabPg == NULL) {
+        *tabPg = allocaTabPG();
+    }
+    pg_t *pgE = cercaPG(*tabPg, pg->codice);
+    if (pgE == NULL) {
+        listInsPG(tabPg, pg);
+        return 1;
+    }
+    PGcpy(pgE, pg); // Aggiorna i dati del personaggio
+    return 0;
 }
 static void printListR(FILE* fout,linkPg h){
     if(h==NULL)
@@ -154,68 +299,59 @@ static void printListR(FILE* fout,linkPg h){
     stampaPG(fout,&h->pg);
     printListR(fout,h->next);
 }
-
 void stampaListPG(FILE *fout,tabPg_t *tabPg){
+    printf("\n");
     printListR(fout,tabPg->headPg);
 }
-
 int numPG(tabPg_t *tabPg){
     return tabPg->nPg;
 }
 
-static pg_t PGsetVoid(){
-    pg_t pg;
-    pg.nome = NULL;
-    pg.codice = NULL;
-    pg.classe = NULL;
-    pg.stat.hp = pg.stat.mp = pg.stat.atk = pg.stat.def = pg.stat.mag = pg.stat.spr = 0;
-    pg.equip = NULL;
-    return pg;
-}
-
 int isVoidPg(pg_t *pg){
-    return (pg->codice==NULL);
+    return !strcmp(pg->codice,"");
 }
-
 pg_t *cercaPG(tabPg_t *tabPg, char *codice){
-    linkPg x;
+    if(tabPg->headPg==NULL) return NULL;
+    linkPg x; // = malloc(sizeof(linkPg));
+    pg_t *t;
+    // initPG(&(x->pg));
+    x->next = NULL;
     for(x=tabPg->headPg; x!= NULL ; x = x->next){
-        if(strcmp(codice,x->pg.codice)==0){
+        printf("x->pg.codice : %s\n",x->pg.codice);
+        printf("codice : %s\n",codice);
+        if(strcmp(x->pg.codice,codice)==0){
             return &x->pg;
         }
     }
     return NULL;
 }
-
 static pg_t listExtrKeyP(linkPg *h,char *key){
     linkPg *xp, t;
-    pg_t pg; pg = PGsetVoid();
+    initPG(&(*xp)->pg);
+    (*xp)->next = NULL;
+    pg_t *pg = allocaPG();
+
     for(xp=h; (*xp)!= NULL ; xp = &((*xp)->next) ){
         if(strcmp(key,(*xp)->pg.codice)==0){
             t = *xp;
             *xp = (*xp)->next;
-            pg = t->pg;
+            *pg = t->pg;
             free(t);
             break;
         }
     }
-    return pg;
+    return *pg;
 }
-
-pg_t *rimuoviPG(tabPg_t *tabPg, char *codice){
+int rimuoviPG(tabPg_t *tabPg, char *codice){
     pg_t extract;
     extract = listExtrKeyP(&tabPg->headPg,codice);
 
     if(isVoidPg(&extract)){
         return 0;
-        printf("Nessun personaggio rimosso\n");
-    }else{
-
-        printf("Personaggio rimosso:\n");
-        stampaPG(stdout,&extract);
     }
+    stampaPG(stdout,&extract);
+    return 1;
 }
-
 void updateStat(struct stat_s *stat, inv_t *ogg){
     stat->hp+= getHP(ogg);
     stat->mp+= getMP(ogg);
@@ -224,38 +360,97 @@ void updateStat(struct stat_s *stat, inv_t *ogg){
     stat->mag+= getMAG(ogg);
     stat->spr+= getSPR(ogg);
 }
-
-void aggiungiEquip(pg_t *pg, inv_t *ogg){
+void downdateStat(struct stat_s *stat, inv_t *ogg){
+    stat->hp-= getHP(ogg);
+    stat->mp-= getMP(ogg);
+    stat->atk-= getATK(ogg);
+    stat->def-= getDEF(ogg);
+    stat->mag-= getMAG(ogg);
+    stat->spr-= getSPR(ogg);
+}
+int aggiungiEquip(pg_t *pg, inv_t *ogg){
     int i = pg->equip->inUso;
     if(i<MAXE){
         pg->equip->vettEq[i] = ogg;
         updateStat(&pg->stat,ogg);
         pg->equip->inUso++;
-    } else{
-        printf("Equipaggiamento al completo! Rimuovi un oggetto prima.\n");
+        return 1;
     }
+    return 0;
 }
-
-inv_t *rimuoviEquip(pg_t *pg, int e){
-    inv_t *t = pg->equip->vettEq[e];
-    pg->equip->vettEq[e] = NULL;
-    return t;
+void rimuoviEquip(pg_t *pg, inv_t *ogg){
+    int i,j;
+    for(i=0;i<pg->equip->inUso;i++){
+        if(strcmp(getNameINV(pg->equip->vettEq[i]), getNameINV(ogg))==0){
+            break;
+        }
+    }
+    inv_t *t = pg->equip->vettEq[i];
+    pg->equip->vettEq[i] = NULL;
+    pg->equip->inUso--;
+    for(j=i;j<pg->equip->inUso;j++){
+        pg->equip->vettEq[j] =  pg->equip->vettEq[j+1];
+    }
+    downdateStat(&pg->stat,ogg);
+    return;
 }
-
-static void liberaPG(pg_t *pg){
+void liberaPG(pg_t *pg){
+    if (pg == NULL) return;
     free(pg->codice);
     free(pg->nome);
     free(pg->classe);
-    if(pg->equip!=NULL)
-        liberaEquip(pg->equip);
+    liberaEquip(pg->equip);
     free(pg);
 }
-
 void liberaListPG(tabPg_t *tabPg){
+    if (tabPg == NULL) return;
     linkPg p, q;
     for(p=tabPg->headPg; p!=NULL; p=q){
         q = p->next;
         liberaPG(&(p->pg));
     }
     free(tabPg);
+}
+char *getNamePG(pg_t *pg){
+    return pg->nome;
+}
+tabEquip_t *getEquipPG(pg_t *pg){
+    return pg->equip;
+}
+int getNumEquipPG(pg_t *pg){
+    return pg->equip->inUso;
+}
+int isInEqupPG(pg_t *pg, inv_t *ogg){
+    int i;
+    for(i=0;i<pg->equip->inUso;i++){
+        if(pg->equip->vettEq[i] == ogg)
+            return 1;
+    }
+    return 0;
+}
+pg_t *allocaPG(){
+    pg_t *pg;
+    pg = malloc(sizeof(pg_t)); //alloca campo stat
+    initPG(pg);
+    return pg;
+}
+void setCodicePG(pg_t *pg,char *codice){
+    free(pg->codice);
+    pg->codice = strdup(codice);
+}
+void setNomePG(pg_t *pg,char *nome){
+    free(pg->nome);
+    pg->nome = strdup(nome);
+}
+void setClassePG(pg_t *pg,char *classe){
+    free(pg->classe);
+    pg->classe = strdup(classe);
+}
+void setStatPG(pg_t *pg,int hp, int mp, int atk, int def, int mag, int spr){
+    pg->stat.hp = hp;
+    pg->stat.mp = mp;
+    pg->stat.atk = atk;
+    pg->stat.def = def;
+    pg->stat.mag = mag;
+    pg->stat.spr = spr;
 }

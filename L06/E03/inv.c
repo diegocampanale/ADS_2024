@@ -48,24 +48,26 @@ tabInv_t *allocaInv(int max){
     inv->vettInv = malloc(max*sizeof(inv_t));
     return inv;
 }
-tabInv_t *leggiFileInv(char *nomefile){
-    tabInv_t *tabInv;
+int leggiFileInv(tabInv_t **pTabInv, char *nomefile){
+    FILE *f = fopen(nomefile,"r");
+    if (f==NULL) return 0;
+
     int i, nOgg;
     char nome[MAXL], tipo[MAXL];
 
-    FILE *f = fopen(nomefile,"r");
-    if (f==NULL) return NULL;
-
     fscanf(f,"%d",&nOgg);
-    tabInv = allocaInv(nOgg);
-    for(i=0; i<nOgg;i++){
-        leggiOggetto(f,nome,tipo,&tabInv->vettInv[i].modStat);
-        tabInv->vettInv[i].nome = strdup(nome);
-        tabInv->vettInv[i].tipo = strdup(tipo);
+
+    if(*pTabInv == NULL){
+        *pTabInv = allocaInv(nOgg);
     }
-    tabInv->nInv = nOgg;
+    for(i=0; i<nOgg;i++){
+        leggiOggetto(f,nome,tipo,&(*pTabInv)->vettInv[i].modStat);
+        (*pTabInv)->vettInv[i].nome = strdup(nome);
+        (*pTabInv)->vettInv[i].tipo = strdup(tipo);
+    }
+    (*pTabInv)->nInv = nOgg;
     fclose(f);
-    return tabInv;
+    return nOgg;
 }
 static int leggiOggetto(FILE *fin, char *nome, char *tipo, modStat_t *stat){
     return fscanf(fin, "%s %s %d %d %d %d %d %d\n",
@@ -79,7 +81,7 @@ void stampaOggetto(FILE *fout, inv_t *ogg){
     fprintf(fout, "\tATK: %d", ogg->modStat.atk);
     fprintf(fout, "\tDEF: %d", ogg->modStat.def);
     fprintf(fout, "\tMAG: %d", ogg->modStat.mag);
-    fprintf(fout, "\tSPR: %d\n", ogg->modStat.spr);
+    fprintf(fout, "\tSPR: %d", ogg->modStat.spr);
 }
 void liberaInv(tabInv_t *tabInv){
     int i;
@@ -103,4 +105,16 @@ inv_t *cercaOggetto(tabInv_t *tabInv, char *nome){
 }
 int numINV(tabInv_t *tabInv){
     return tabInv->nInv;
+}
+void stampaOggetti(FILE *fout, tabInv_t *tabInv){
+    int i;
+    for(i=0;i<tabInv->nInv;i++){
+        printf("%d - ",i);
+        stampaOggetto(fout,&tabInv->vettInv[i]);
+        printf("\n");
+    }
+}
+
+char *getNameINV(inv_t *ogg){
+    return ogg->nome;
 }

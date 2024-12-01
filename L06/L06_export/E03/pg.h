@@ -10,18 +10,30 @@ typedef struct pg_s pg_t;
 typedef struct nodePg_s *linkPg, nodePg_t;
 typedef struct tabPg_s tabPg_t;
 
-tabPg_t *leggiFilePG(char *nomefile);
+int leggiFilePG(tabPg_t **pTabPg,char *nomefile);
 void stampaPG(FILE *fin, pg_t *pg);
 void liberaListPG(tabPg_t *tabPg);
-tabPg_t *allocaPG();
+tabPg_t *allocaTabPG();
 int numPG(tabPg_t *tabPg);
-int aggiungiPG(tabPg_t *tabPg, char *codice, char *nome, char *classe, int hp,int mp,int atk,int def,int mag,int spr);
-void rimuoviPG(tabPg_t *tabPg);
+int aggiungiPG(tabPg_t **tabPg, pg_t *pg);
+int rimuoviPG(tabPg_t *tabPg, char *codice);
 void stampaListPG(FILE *fout,tabPg_t *tabPg);
 pg_t *cercaPG(tabPg_t *tabPg, char *codice);
-void aggiungiEquip(pg_t *pg, inv_t *ogg);
-inv_t *rimuoviEquip(pg_t *pg, int e);
+int aggiungiEquip(pg_t *pg, inv_t *ogg);
+void rimuoviEquip(pg_t *pg, inv_t *ogg);
+char *getNamePG(pg_t *pg);
+void stampaEquip(FILE *f,tabEquip_t *equip);
+tabEquip_t *getEquipPG(pg_t *pg);
+int getNumEquipPG(pg_t *pg);
+int isInEqupPG(pg_t *pg, inv_t *ogg);
+pg_t *allocaPG();
+void liberaPG(pg_t *pg);
+void PGcpy(pg_t *dest, pg_t *src);
 
+void setCodicePG(pg_t *pg,char *codice);
+void setNomePG(pg_t *pg,char *nome);
+void setClassePG(pg_t *pg,char *classe);
+void setStatPG(pg_t *pg,int hp, int mp, int atk, int def, int mag, int spr);
 
 
 #endif // PG_H
