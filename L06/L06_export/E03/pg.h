@@ -29,6 +29,7 @@ int isInEqupPG(pg_t *pg, inv_t *ogg);
 pg_t *allocaPG();
 void liberaPG(pg_t *pg);
 void PGcpy(pg_t *dest, pg_t *src);
+pg_t **cercaPgPunt(tabPg_t *tabPg, char *codice);
 
 void setCodicePG(pg_t *pg,char *codice);
 void setNomePG(pg_t *pg,char *nome);

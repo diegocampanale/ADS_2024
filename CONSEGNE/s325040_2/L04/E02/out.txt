@@ -1,0 +1,6 @@
+A0001 Paolo frate 01/01/1000 ViaCristo NewYork 99999
+A0008 Gianluca vacchi 01/01/1111 ViaDaMe GioiaDelColle 10123
+A0001 Mario Rossi 01/02/1990 ViaMarcoPolo Torino 10129
+A0004 Anna Gialli 04/09/1995 FratelliAlinari Firenze 50123
+A0003 Antonio Neri 19/04/1999 GalleriaTermini Roma 185
+A0006 Diego Campanale 05/11/2004 ViaBari Bari 70125

@@ -71,7 +71,8 @@ void stampaPG(FILE *fout, pg_t *pg){
     if(pg->stat.spr<0) fprintf(fout,"\tSPR: %d",0);
     else fprintf(fout,"\tSPR: %d\n",pg->stat.spr);
 
-    if (pg->equip->inUso>0){
+    fprintf(fout,"n. oggetti: %d\n", pg->equip->inUso);
+    if (pg->equip->vettEq!=NULL && pg->equip->inUso>0){
         fprintf(fout,"Equipaggiamento:\n");
         stampaEquip(fout,pg->equip);
     }
@@ -158,6 +159,7 @@ void PGcpy(pg_t *dest, pg_t *src) {
     if (dest->codice != NULL) free(dest->codice);
     if (dest->nome != NULL) free(dest->nome);
     if (dest->classe != NULL) free(dest->classe);
+    if (dest->equip != NULL) liberaEquip(dest->equip);
 
     // Duplica i valori da src a dest
     dest->codice = strdup(src->codice);
@@ -177,6 +179,15 @@ void PGcpy(pg_t *dest, pg_t *src) {
     dest->stat.def = src->stat.def;
     dest->stat.mag = src->stat.mag;
     dest->stat.spr = src->stat.spr;
+
+    dest->equip->inUso = src->equip->inUso;
+    // copia l'equipaggiamento
+    if(src->equip->inUso>0){
+        int i;
+        for(i=0;i>src->equip->inUso;i++){
+            dest->equip->vettEq[i] = src->equip->vettEq[i];
+        }
+    }
 }
 
 
@@ -211,8 +222,6 @@ static void listInsPG(tabPg_t **tabPg, pg_t *pg){
         (*tabPg)->tailPg = (*tabPg)->tailPg->next;
         (*tabPg)->nPg++;
     }
-    printf("punt pg %p\n",pg);
-    printf("punt pg in lista %p\n",(*tabPg)->tailPg);
 
 }
 /*int leggiFilePG(tabPg_t **pTabPg,char *nomefile){
@@ -251,7 +260,6 @@ int leggiFilePG(tabPg_t **pTabPg, char *nomefile) {
     }
 
     while (leggiPG(fp, codice, nome, classe, &hp,&mp,&atk,&def,&mag,&spr) != EOF) {
-        printf("letti da file: %s %s %s %d %d %d %d %d %d\n",codice, nome, classe, hp, mp, atk, def, mag, spr);
         pg_t *pg = allocaPG();
         setCodicePG(pg, codice);
         setNomePG(pg, nome);
@@ -280,7 +288,7 @@ int leggiFilePG(tabPg_t **pTabPg, char *nomefile) {
 }*/
 int aggiungiPG(tabPg_t **tabPg, pg_t *pg) {
     if (pg == NULL || pg->codice == NULL) {
-        return 0;
+        return -1;
     }
     if (*tabPg == NULL) {
         *tabPg = allocaTabPG();
@@ -291,6 +299,9 @@ int aggiungiPG(tabPg_t **tabPg, pg_t *pg) {
         return 1;
     }
     PGcpy(pgE, pg); // Aggiorna i dati del personaggio
+    printf("Personaggio modificato:\n");
+    stampaPG(stdout,pgE);
+
     return 0;
 }
 static void printListR(FILE* fout,linkPg h){
@@ -301,7 +312,8 @@ static void printListR(FILE* fout,linkPg h){
 }
 void stampaListPG(FILE *fout,tabPg_t *tabPg){
     printf("\n");
-    printListR(fout,tabPg->headPg);
+    if(tabPg!=NULL)
+        printListR(fout,tabPg->headPg);
 }
 int numPG(tabPg_t *tabPg){
     return tabPg->nPg;
@@ -317,34 +329,50 @@ pg_t *cercaPG(tabPg_t *tabPg, char *codice){
     // initPG(&(x->pg));
     x->next = NULL;
     for(x=tabPg->headPg; x!= NULL ; x = x->next){
-        printf("x->pg.codice : %s\n",x->pg.codice);
-        printf("codice : %s\n",codice);
         if(strcmp(x->pg.codice,codice)==0){
             return &x->pg;
         }
     }
     return NULL;
 }
-static pg_t listExtrKeyP(linkPg *h,char *key){
-    linkPg *xp, t;
-    initPG(&(*xp)->pg);
-    (*xp)->next = NULL;
-    pg_t *pg = allocaPG();
+pg_t **cercaPgPunt(tabPg_t *tabPg, char *codice){
+    pg_t **pPg = malloc(sizeof(pg_t *));
+    *pPg = cercaPG(tabPg,codice);
+    return pPg;
+}
+static pg_t listExtrKeyP(linkPg *h,linkPg *t,char *key){
 
-    for(xp=h; (*xp)!= NULL ; xp = &((*xp)->next) ){
+    // initPG(&(*xp)->pg);
+    linkPg *xp; //  = malloc(sizeof(linkPg));
+    linkPg *pp; // = malloc(sizeof(linkPg)
+    linkPg tmp; // = malloc(sizeof(nodePg_t));
+
+    //*pp = NULL;
+    // (*xp)->next = NULL;
+    pg_t *pg = allocaPG();
+    if(h==NULL) return *pg;
+
+    for(xp=h, pp=NULL; (*xp)!= NULL ; pp = xp, xp = &((*xp)->next) ){
         if(strcmp(key,(*xp)->pg.codice)==0){
-            t = *xp;
+            tmp = *xp;
+
+            if(tmp->next==NULL && (*h)->next != NULL ){ // se l'elemento da estrarre è l'ultimo , modifico tail
+                *t = *pp;
+            }
             *xp = (*xp)->next;
-            *pg = t->pg;
-            free(t);
+
+            PGcpy(pg,&tmp->pg);
+            liberaPG(&tmp->pg);
             break;
         }
     }
+    free(tmp);
+
     return *pg;
 }
 int rimuoviPG(tabPg_t *tabPg, char *codice){
     pg_t extract;
-    extract = listExtrKeyP(&tabPg->headPg,codice);
+    extract = listExtrKeyP(&tabPg->headPg,&tabPg->tailPg,codice);
 
     if(isVoidPg(&extract)){
         return 0;
@@ -400,7 +428,6 @@ void liberaPG(pg_t *pg){
     free(pg->nome);
     free(pg->classe);
     liberaEquip(pg->equip);
-    free(pg);
 }
 void liberaListPG(tabPg_t *tabPg){
     if (tabPg == NULL) return;

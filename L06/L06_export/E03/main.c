@@ -53,8 +53,11 @@ int main(int argc, char ** argv){
                 break;
 
             case r_addPG:
-                if(leggiNuovoPG(&tPg)==1){
+                n = leggiNuovoPG(&tPg);
+                if(n==1){
                     printf("Personaggio aggiunto correttamente\n");
+                }else if(n==0){
+                    printf("Personaggio esistente aggiornato!\n");
                 }else{
                     printf("Errore. Personaggio non aggiunto! \n");
                 }
@@ -113,21 +116,11 @@ int leggiNuovoPG(tabPg_t **pTabPg){
 
     int hp,mp,atk,def,mag,spr;
     int r;
-    pg_t *pg = allocaPG();
-    if(*pTabPg == NULL){
-        *pTabPg = allocaTabPG();
-    }
 
-    printf("Codice: ");
-    leggiCodice(codice); if(*codice=='\0') { return 0; }
-    setCodicePG(pg,codice);
-    free(codice);
+    printf("Codice: "); leggiCodice(codice);
+    if(*codice=='\0') { return 0; }
     printf("Nome: "); scanf(" %s",nome);
-    setNomePG(pg,nome);
-    free(nome);
     printf("Classe: "); scanf(" %s",classe);
-    setClassePG(pg,classe);
-    free(classe);
     printf("Statistiche <hp> <mp> <atk> <def> <mag> <spr>: ");
     if (scanf(" %d %d %d %d %d %d", &hp, &mp, &atk, &def, &mag, &spr) != 6) {
         return 0; // Esci con errore
@@ -135,8 +128,20 @@ int leggiNuovoPG(tabPg_t **pTabPg){
     if (hp < 0 || mp < 0 || atk < 0 || def < 0 || mag < 0 || spr < 0) {
         return 0;
     }
+
+    pg_t *pg = allocaPG();
+    setCodicePG(pg,codice);
+    setNomePG(pg,nome);
+    setClassePG(pg,classe);
     setStatPG(pg,hp,mp,atk,def,mag,spr);
+
     r = aggiungiPG(pTabPg,pg);
+
+    free(codice);
+    free(nome);
+    free(classe);
+    liberaPG(pg);
+
     return r;
 }
 
@@ -166,14 +171,15 @@ int modificaEquip(tabPg_t *tabPg, tabInv_t *tabInv){
     char *codice = malloc(MAXC);
     char *nome;
     inv_t **Pogg;
-    pg_t **Ppg = malloc(sizeof(pg_t*));
+    pg_t **Ppg;
+
     int opt,i;
 
     printf("Codice personaggio da Modificare: "); leggiCodice(codice);
     if(codice==NULL)
         return 0;
-    *Ppg = cercaPG(tabPg,codice);
-    if(*Ppg==NULL)
+    Ppg = cercaPgPunt(tabPg,codice);
+    if(Ppg==NULL)
         return 0;
     free(codice);
     printf("Personaggio selezionato:\n");
@@ -219,20 +225,20 @@ int modificaEquip(tabPg_t *tabPg, tabInv_t *tabInv){
             if(getNumEquipPG(*Ppg)>0){
                 printf("Equipaggiamento corrente di %s:\n", getNamePG(*Ppg));
                 stampaEquip(stdout, getEquipPG(*Ppg));
+
+                printf("Nome oggetto da rimuovere:\n>> ");
+                scanf(" %s",nome);
+                *Pogg = cercaOggetto(tabInv,nome);
+                if(isInEqupPG(*Ppg,*Pogg)==1){
+                    rimuoviEquip(*Ppg,*Pogg);
+                    printf("Oggetto rimosso correttamente dall'equipaggiamento di %s\n", getNamePG(*Ppg));
+                }else{
+                    printf("Oggetto non equipaggiato da %s\n", getNamePG(*Ppg));
+                }
+                stampaPG(stdout,*Ppg);
             }else{
                 printf("%s non ha oggetti equipaggiati.\n", getNamePG(*Ppg));
             }
-
-            printf("Nome oggetto da rimuovere:\n>> ");
-            scanf(" %s",nome);
-            *Pogg = cercaOggetto(tabInv,nome);
-            if(isInEqupPG(*Ppg,*Pogg)==1){
-                rimuoviEquip(*Ppg,*Pogg);
-                printf("Oggetto rimosso correttamente dall'equipaggiamento di %s\n", getNamePG(*Ppg));
-            }else{
-                printf("Oggetto non equipaggiato da %s\n", getNamePG(*Ppg));
-            }
-            stampaPG(stdout,*Ppg);
             free(nome);
             free(Pogg);
             break;
