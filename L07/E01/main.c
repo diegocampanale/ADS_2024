@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#define INPUTFILE_PATH "./in.txt"
+#define INPUTFILE_PATH "pg.txt"
 
 int main(int argc, char ** argv){
     char buf[100];

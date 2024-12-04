@@ -3,10 +3,10 @@ cmake_minimum_required(VERSION 3.0)
 #-------USER VARIABLES-------#
 #Set those variables according to your needs
 #example set(GLOBAL_PROJECT_NAME L01) for lab01
-set(LAB_NAME LZZ)
+set(LAB_NAME L07)
 #Add directory names here!
 #example set(DIRECTORIES E01 E02 E03)
-set(DIRECTORIES EZZ)
+set(DIRECTORIES E01 E02)
 
 #-------NON USER SPACE-------#
 #Don't touch here unless you know what you are doing!

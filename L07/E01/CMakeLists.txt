@@ -1,11 +1,12 @@
 #-------USER STUFF-------#
 #Set the name of the lab as the lab exercice
 #example: for Exercise 1:  project(E01)
-project(EZZ)
+project(E01)
 
 #Add source files and headers if needed
 #example: add_executable(${PROJECT_NAME} main.c some_header.h another_header.h ../some/folder/header.h)
-add_executable(${PROJECT_NAME} main.c)
+add_executable(${PROJECT_NAME} main.c equipArray.h inv.h invArray.h pg.h pgList.h
+gdr.c)
 
 #Add file names if needed. This enables you to include a file with a relative path and being able to open/include it inside your main.c
 #Notice: It is better to add your file in the same folder as your main.c !
@@ -13,7 +14,7 @@ add_executable(${PROJECT_NAME} main.c)
 #
 #example: set(FILES ./inputFile.txt ./anotherInputFile.txt) <- notice the relative path!
 #example: you will be now able to do something like #define FILE_PATH "./inputfile.txt" and then fopen(FILE_PATH, ...) without errors!
-set(FILES in.txt)
+set(FILES pg.txt inventario.txt)
 
 #-------NON USER STUFF-------#
 #Do not modify this if you are not sure!
