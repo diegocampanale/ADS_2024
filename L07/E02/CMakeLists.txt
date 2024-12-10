@@ -38,5 +38,5 @@ foreach(file ${FILES})
             ${CMAKE_CURRENT_SOURCE_DIR}/${file} $<TARGET_FILE_DIR:${PROJECT_NAME}>/${file}
             )
     #add the file as source property: build will be triggered on file upload
-    set_property(SOURCE main.c APPEND PROPERTY OBJECT_DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/${file})
+    set_property(SOURCE old.c APPEND PROPERTY OBJECT_DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/${file})
 endforeach()
