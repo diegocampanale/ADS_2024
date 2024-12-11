@@ -4,9 +4,9 @@
 #define INPUTFILE_PATH "ele.txt"
 #define MAXS 100
 #define MAX_DIAG 3
-#define MAX_EL_DIAG 3
+#define MAX_EL_DIAG 5
 #define DD 10
-#define DP 19
+#define DP 20
 
 typedef struct elemento{
     char nome[MAXS];
@@ -110,6 +110,7 @@ void stampaSol(int** sol){
 void programmaR(int pos_i, int pos_j, tabElementi_t tEl, int **sol, int **best_sol, int d){
     int i,j,e;
 
+    stampaSol(sol);
     // terminazione
     if(pos_i>=d){
 
@@ -149,6 +150,7 @@ void programmaR(int pos_i, int pos_j, tabElementi_t tEl, int **sol, int **best_s
                 programmaR(pos_i,pos_j+1,tEl,sol,best_sol,d);
                 programmaR(pos_i+1,0,tEl,sol,best_sol,d);
                 sol[pos_i][pos_j] = -1;
+
             }
         }
     //} // ricorre sulla diagonale successiva
