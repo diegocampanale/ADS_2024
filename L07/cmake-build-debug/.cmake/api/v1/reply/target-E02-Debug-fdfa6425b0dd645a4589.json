@@ -2,10 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "E02/E02.exe"
-		},
-		{
-			"path" : "E02/E02.pdb"
+			"path" : "E02/E02"
 		}
 	],
 	"backtrace" : 1,
@@ -38,7 +35,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-g -std=gnu99 -fdiagnostics-color=always"
+					"fragment" : "-g -std=gnu99 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk -fcolor-diagnostics"
 				}
 			],
 			"language" : "C",
@@ -68,16 +65,12 @@
 			{
 				"fragment" : "",
 				"role" : "flags"
-			},
-			{
-				"fragment" : "-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32",
-				"role" : "libraries"
 			}
 		],
 		"language" : "C"
 	},
 	"name" : "E02",
-	"nameOnDisk" : "E02.exe",
+	"nameOnDisk" : "E02",
 	"paths" : 
 	{
 		"build" : "E02",

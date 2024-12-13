@@ -1,12 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define INPUTFILE_PATH "ele.txt"
+#define INPUTFILE_PATH "elementi.txt"
 #define MAXS 100
 #define MAX_DIAG 3
 #define MAX_EL_DIAG 5
 #define DD 10
-#define DP 20
+#define DP 35
 
 typedef struct elemento{
     char nome[MAXS];
@@ -25,6 +25,7 @@ void stampaDiagonale(tabElementi_t tEl, int *diag);
 int programma(tabElementi_t tEl);
 float contaValoreDiag(tabElementi_t tEl, int *diag);
 int contaDifficoltaDiag(tabElementi_t tEl, int *diag);
+float contaValoreProg(tabElementi_t tEl,int **prog, int *bonus);
 
 void programmaR(int pos_i, int pos_j, tabElementi_t tEl, int **sol, int **best_sol, int d);
 int condizioniProgramma(tabElementi_t tEl, int **prog, int **best_prog);
@@ -74,13 +75,17 @@ int programma(tabElementi_t tEl){
     programmaR(0,0,tEl,programma,best_programma,MAX_DIAG);
     stampaSol(best_programma);
 
-    printf("Programma senza vincoli:\n");
+    int *bonus; *bonus=0;
+    printf("--- Test Case ---\n");
+    printf("DD = %d DP = %d\n",DD,DP);
+    printf("TOT = %0.3f\n", contaValoreProg(tEl,best_programma,bonus));
     for(d=0;d<MAX_DIAG;d++){
-        printf("Diagonale #%d   k = %d \n",d,best_k[d]);
-        stampaDiagonale(tEl,best_programma[d]);
-        printf("Val diagonale: %0.2f\n", contaValoreDiag(tEl,best_programma[d]));
-        printf("DIFF diagonale: %d\n", contaDifficoltaDiag(tEl,best_programma[d]));
+        printf("DIAG #%d > %0.3f ",d+1,contaValoreDiag(tEl,best_programma[d]));
+        if(d==MAX_DIAG-1 && *bonus == 1){
+            printf("* 1.5 (BONUS)");
+        }
         printf("\n");
+        stampaDiagonale(tEl,best_programma[d]);
     }
 
     free(best_k);
@@ -110,12 +115,8 @@ void stampaSol(int** sol){
 void programmaR(int pos_i, int pos_j, tabElementi_t tEl, int **sol, int **best_sol, int d){
     int i,j,e;
 
-    stampaSol(sol);
     // terminazione
     if(pos_i>=d){
-
-        //printf("Terminazione\n");
-        //stampaSol(sol);
 
         int ok_diag=0;
         for(i=0;i<MAX_DIAG;i++){
@@ -126,75 +127,28 @@ void programmaR(int pos_i, int pos_j, tabElementi_t tEl, int **sol, int **best_s
 
         if(ok_diag==MAX_DIAG && condizioniProgramma(tEl,sol,best_sol)==1){
 
-            printf("Best_sol_aggiornata\n");
-            stampaSol(sol);
-
             for(i=0;i<MAX_DIAG;i++){
                 for(j=0;j<MAX_EL_DIAG;j++){
                     best_sol[i][j] = sol[i][j];
                 }
             }
         }
-
         return;
     }
     if(pos_j>=MAX_EL_DIAG) return;
 
-    int p;
+
     // Ricorsione programmaR
-
-    //if(pos_j<MAX_EL_DIAG){ // ricorre sulla diagonale stessa
-        for(e=0;e<tEl.n_elementi;e++){
-            if(prooningDiagonale(tEl,sol[pos_i],pos_j,e)){
-                sol[pos_i][pos_j] = e;
-                programmaR(pos_i,pos_j+1,tEl,sol,best_sol,d);
-                programmaR(pos_i+1,0,tEl,sol,best_sol,d);
-                sol[pos_i][pos_j] = -1;
-
-            }
-        }
-    //} // ricorre sulla diagonale successiva
-
-
-
-}
-
-/*void diagonaleR(int pos, tabElementi_t tEl, int *sol, int *b_sol, int k, int *best_k){ // modello disposizioni ripetute
-    int i;
-
-
-    printf("sol:       ");
-    for(i=0;i<MAX_EL_DIAG;i++){
-        printf("%d ",sol[i]);
-    }
-    printf("     p: %0.2f\n", contaValoreDiag(tEl,sol,k));
-    printf("best_sol:  ");
-    for(i=0;i<MAX_EL_DIAG;i++){
-        printf("%d ",b_sol[i]);
-    }
-    printf("     p: %0.2f\n", contaValoreDiag(tEl,b_sol,*best_k));
-
-
-    if(pos >= k){ // terminazione
-        //if(condizioniDiagonale(tEl,sol,b_sol,k,*best_k)){
-            *best_k = k;
-            for(i=0;i<k;i++){ // ricopio soluzione migliore trovata
-                b_sol[i] = sol[i];
-            }
-        //}
-        return;
-    }
-
-    // RICORSIONE
-    for (i = 0; i < tEl.n_elementi; i++) {
-        if (prooningDiagonale(tEl,sol,pos,i,k)==1){
-            sol[pos] = i;
-            diagonaleR(pos + 1, tEl, sol, b_sol, k,best_k);
+    for(e=0;e<tEl.n_elementi;e++){
+        if(prooningDiagonale(tEl,sol[pos_i],pos_j,e)){
+            sol[pos_i][pos_j] = e;
+            programmaR(pos_i+1,0,tEl,sol,best_sol,d);
+            programmaR(pos_i,pos_j+1,tEl,sol,best_sol,d);
+            sol[pos_i][pos_j] = -1;
         }
     }
-    return;
+
 }
-*/
 
 int prooningDiagonale(tabElementi_t tEl, int *sol,int pos, int i){
 
@@ -208,8 +162,8 @@ int prooningDiagonale(tabElementi_t tEl, int *sol,int pos, int i){
         return 0;
     }
 
-    // controla precedenze
-    if((pos==0 && tEl.elementi[i].req_prec != 0) || (pos>1 && sol[pos-1]>=0 && tEl.elementi[i].req_prec == 0)) {
+    // controlla precedenze
+    if((pos==0 && tEl.elementi[i].req_prec != 0) || (pos>0 && sol[pos-1]<0 && tEl.elementi[i].req_prec == 1)) {
         return 0;
     }
 
@@ -233,17 +187,9 @@ int condizioniProgramma(tabElementi_t tEl, int **prog, int **best_prog){
 // controllo valore corrente migliore dell'best_programma
     float val_tot=0,best_val_tot=0;
     // verifica
-    int isDiff8=0;
-    for(j=0;j<MAX_EL_DIAG;j++){
-        if(prog[MAX_DIAG-1][j]>=0 && tEl.elementi[prog[MAX_DIAG-1][j]].difficolta >= 8 && tEl.elementi[prog[MAX_DIAG-1][j]].finale == 1)
-            isDiff8 = 1;
-    }
-    for(i=0;i<MAX_DIAG;i++){
-
-            val_tot += contaValoreDiag(tEl, prog[i]);
-            best_val_tot += contaValoreDiag(tEl, best_prog[i]);
-
-    }
+    int bonus=0;
+    val_tot = contaValoreProg(tEl,prog,&bonus);
+    best_val_tot = contaValoreProg(tEl,best_prog,&bonus);
     if(val_tot<=best_val_tot) return 0;
 
     // controllo inclusione elemento in avanti e elemento indietro nella soluzione programma
@@ -262,7 +208,7 @@ int condizioniProgramma(tabElementi_t tEl, int **prog, int **best_prog){
     int ok=0;
     for(i=0;i<MAX_DIAG;i++){
         for(j=1;j<MAX_EL_DIAG;j++){
-            if(prog[i][j]>=0 && prog[i][j-1]>=0 && tEl.elementi[prog[i][j]].dir_in == tEl.elementi[prog[i][j-1]].dir_out) {
+            if(prog[i][j]>=0 && prog[i][j-1]>=0 && tEl.elementi[prog[i][j]].tipologia!=0 && tEl.elementi[prog[i][j-1]].tipologia!=0) {
                 ok=1;
             }
         }
@@ -279,13 +225,14 @@ int condizioniProgramma(tabElementi_t tEl, int **prog, int **best_prog){
     return 1;
 }
 
+// diagonale 0,2 non accettate
 int condizioniDiagonale(tabElementi_t tEl,int *diag, int *best_diag){
     int i;
 
-    // miglioramento soluzione ottima
+    /* miglioramento soluzione ottima
     if(contaValoreDiag(tEl,diag) <= contaValoreDiag(tEl,best_diag)){
         return 0;
-    }
+    }*/
 
     // controllo difficolta diagonale
     if(contaDifficoltaDiag(tEl,diag)>DD) return 0;
@@ -299,6 +246,27 @@ float contaValoreDiag(tabElementi_t tEl, int *diag){
     for(i=0;i<MAX_EL_DIAG;i++){
         if(diag[i]>=0) {
             tot_val += tEl.elementi[diag[i]].val;
+        }
+    }
+    return tot_val;
+}
+
+float contaValoreProg(tabElementi_t tEl,int **prog, int *bonus){
+    int i,finale=0;
+    for(i=MAX_EL_DIAG-1;i>0 && finale==0;i--){
+        if(prog[MAX_DIAG-1][i]>=0){
+            finale=1;
+            if(tEl.elementi[prog[MAX_DIAG-1][i]].difficolta>=8){
+                *bonus = 1;
+            }
+        }
+    }
+    float tot_val=0;
+    for(i=0;i<MAX_DIAG;i++){
+        if(i==MAX_DIAG-1 && *bonus == 1){
+            tot_val += contaValoreDiag(tEl,prog[i])*(float)1.5;
+        }else{
+            tot_val += contaValoreDiag(tEl,prog[i]);
         }
     }
     return tot_val;
@@ -333,6 +301,7 @@ tabElementi_t leggiElementi(char *nomefile){
 void stampaDiagonale(tabElementi_t tEl, int *diag){
     int i;
     for(i = 0; i<MAX_EL_DIAG;i++){
-        printf("\t%d %s %0.2f\n", diag[i], tEl.elementi[diag[i]].nome, tEl.elementi[diag[i]].val);
+        printf("%s  ",tEl.elementi[diag[i]].nome);
     }
+    printf("\n");
 }
