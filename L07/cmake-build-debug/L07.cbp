@@ -124,16 +124,25 @@
 		<Unit filename="/Users/diegocampanale/CLionProjects/ASD_24/L07/E01/gdr.c">
 			<Option target="E01"/>
 		</Unit>
+		<Unit filename="/Users/diegocampanale/CLionProjects/ASD_24/L07/E01/inv.c">
+			<Option target="E01"/>
+		</Unit>
 		<Unit filename="/Users/diegocampanale/CLionProjects/ASD_24/L07/E01/inv.h">
+			<Option target="E01"/>
+		</Unit>
+		<Unit filename="/Users/diegocampanale/CLionProjects/ASD_24/L07/E01/invArray.c">
 			<Option target="E01"/>
 		</Unit>
 		<Unit filename="/Users/diegocampanale/CLionProjects/ASD_24/L07/E01/invArray.h">
 			<Option target="E01"/>
 		</Unit>
-		<Unit filename="/Users/diegocampanale/CLionProjects/ASD_24/L07/E01/main.c">
+		<Unit filename="/Users/diegocampanale/CLionProjects/ASD_24/L07/E01/pg.c">
 			<Option target="E01"/>
 		</Unit>
 		<Unit filename="/Users/diegocampanale/CLionProjects/ASD_24/L07/E01/pg.h">
+			<Option target="E01"/>
+		</Unit>
+		<Unit filename="/Users/diegocampanale/CLionProjects/ASD_24/L07/E01/pgList.c">
 			<Option target="E01"/>
 		</Unit>
 		<Unit filename="/Users/diegocampanale/CLionProjects/ASD_24/L07/E01/pgList.h">

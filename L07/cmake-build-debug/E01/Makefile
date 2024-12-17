@@ -154,29 +154,101 @@ gdr.c.s:
 	cd /Users/diegocampanale/CLionProjects/ASD_24/L07/cmake-build-debug && $(MAKE) $(MAKESILENT) -f E01/CMakeFiles/E01.dir/build.make E01/CMakeFiles/E01.dir/gdr.c.s
 .PHONY : gdr.c.s
 
-main.o: main.c.o
-.PHONY : main.o
+inv.o: inv.c.o
+.PHONY : inv.o
 
 # target to build an object file
-main.c.o:
-	cd /Users/diegocampanale/CLionProjects/ASD_24/L07/cmake-build-debug && $(MAKE) $(MAKESILENT) -f E01/CMakeFiles/E01.dir/build.make E01/CMakeFiles/E01.dir/main.c.o
-.PHONY : main.c.o
+inv.c.o:
+	cd /Users/diegocampanale/CLionProjects/ASD_24/L07/cmake-build-debug && $(MAKE) $(MAKESILENT) -f E01/CMakeFiles/E01.dir/build.make E01/CMakeFiles/E01.dir/inv.c.o
+.PHONY : inv.c.o
 
-main.i: main.c.i
-.PHONY : main.i
+inv.i: inv.c.i
+.PHONY : inv.i
 
 # target to preprocess a source file
-main.c.i:
-	cd /Users/diegocampanale/CLionProjects/ASD_24/L07/cmake-build-debug && $(MAKE) $(MAKESILENT) -f E01/CMakeFiles/E01.dir/build.make E01/CMakeFiles/E01.dir/main.c.i
-.PHONY : main.c.i
+inv.c.i:
+	cd /Users/diegocampanale/CLionProjects/ASD_24/L07/cmake-build-debug && $(MAKE) $(MAKESILENT) -f E01/CMakeFiles/E01.dir/build.make E01/CMakeFiles/E01.dir/inv.c.i
+.PHONY : inv.c.i
 
-main.s: main.c.s
-.PHONY : main.s
+inv.s: inv.c.s
+.PHONY : inv.s
 
 # target to generate assembly for a file
-main.c.s:
-	cd /Users/diegocampanale/CLionProjects/ASD_24/L07/cmake-build-debug && $(MAKE) $(MAKESILENT) -f E01/CMakeFiles/E01.dir/build.make E01/CMakeFiles/E01.dir/main.c.s
-.PHONY : main.c.s
+inv.c.s:
+	cd /Users/diegocampanale/CLionProjects/ASD_24/L07/cmake-build-debug && $(MAKE) $(MAKESILENT) -f E01/CMakeFiles/E01.dir/build.make E01/CMakeFiles/E01.dir/inv.c.s
+.PHONY : inv.c.s
+
+invArray.o: invArray.c.o
+.PHONY : invArray.o
+
+# target to build an object file
+invArray.c.o:
+	cd /Users/diegocampanale/CLionProjects/ASD_24/L07/cmake-build-debug && $(MAKE) $(MAKESILENT) -f E01/CMakeFiles/E01.dir/build.make E01/CMakeFiles/E01.dir/invArray.c.o
+.PHONY : invArray.c.o
+
+invArray.i: invArray.c.i
+.PHONY : invArray.i
+
+# target to preprocess a source file
+invArray.c.i:
+	cd /Users/diegocampanale/CLionProjects/ASD_24/L07/cmake-build-debug && $(MAKE) $(MAKESILENT) -f E01/CMakeFiles/E01.dir/build.make E01/CMakeFiles/E01.dir/invArray.c.i
+.PHONY : invArray.c.i
+
+invArray.s: invArray.c.s
+.PHONY : invArray.s
+
+# target to generate assembly for a file
+invArray.c.s:
+	cd /Users/diegocampanale/CLionProjects/ASD_24/L07/cmake-build-debug && $(MAKE) $(MAKESILENT) -f E01/CMakeFiles/E01.dir/build.make E01/CMakeFiles/E01.dir/invArray.c.s
+.PHONY : invArray.c.s
+
+pg.o: pg.c.o
+.PHONY : pg.o
+
+# target to build an object file
+pg.c.o:
+	cd /Users/diegocampanale/CLionProjects/ASD_24/L07/cmake-build-debug && $(MAKE) $(MAKESILENT) -f E01/CMakeFiles/E01.dir/build.make E01/CMakeFiles/E01.dir/pg.c.o
+.PHONY : pg.c.o
+
+pg.i: pg.c.i
+.PHONY : pg.i
+
+# target to preprocess a source file
+pg.c.i:
+	cd /Users/diegocampanale/CLionProjects/ASD_24/L07/cmake-build-debug && $(MAKE) $(MAKESILENT) -f E01/CMakeFiles/E01.dir/build.make E01/CMakeFiles/E01.dir/pg.c.i
+.PHONY : pg.c.i
+
+pg.s: pg.c.s
+.PHONY : pg.s
+
+# target to generate assembly for a file
+pg.c.s:
+	cd /Users/diegocampanale/CLionProjects/ASD_24/L07/cmake-build-debug && $(MAKE) $(MAKESILENT) -f E01/CMakeFiles/E01.dir/build.make E01/CMakeFiles/E01.dir/pg.c.s
+.PHONY : pg.c.s
+
+pgList.o: pgList.c.o
+.PHONY : pgList.o
+
+# target to build an object file
+pgList.c.o:
+	cd /Users/diegocampanale/CLionProjects/ASD_24/L07/cmake-build-debug && $(MAKE) $(MAKESILENT) -f E01/CMakeFiles/E01.dir/build.make E01/CMakeFiles/E01.dir/pgList.c.o
+.PHONY : pgList.c.o
+
+pgList.i: pgList.c.i
+.PHONY : pgList.i
+
+# target to preprocess a source file
+pgList.c.i:
+	cd /Users/diegocampanale/CLionProjects/ASD_24/L07/cmake-build-debug && $(MAKE) $(MAKESILENT) -f E01/CMakeFiles/E01.dir/build.make E01/CMakeFiles/E01.dir/pgList.c.i
+.PHONY : pgList.c.i
+
+pgList.s: pgList.c.s
+.PHONY : pgList.s
+
+# target to generate assembly for a file
+pgList.c.s:
+	cd /Users/diegocampanale/CLionProjects/ASD_24/L07/cmake-build-debug && $(MAKE) $(MAKESILENT) -f E01/CMakeFiles/E01.dir/build.make E01/CMakeFiles/E01.dir/pgList.c.s
+.PHONY : pgList.c.s
 
 # Help Target
 help:
@@ -190,9 +262,18 @@ help:
 	@echo "... gdr.o"
 	@echo "... gdr.i"
 	@echo "... gdr.s"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... inv.o"
+	@echo "... inv.i"
+	@echo "... inv.s"
+	@echo "... invArray.o"
+	@echo "... invArray.i"
+	@echo "... invArray.s"
+	@echo "... pg.o"
+	@echo "... pg.i"
+	@echo "... pg.s"
+	@echo "... pgList.o"
+	@echo "... pgList.i"
+	@echo "... pgList.s"
 .PHONY : help
 
 

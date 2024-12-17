@@ -5,8 +5,12 @@ project(E01)
 
 #Add source files and headers if needed
 #example: add_executable(${PROJECT_NAME} main.c some_header.h another_header.h ../some/folder/header.h)
-add_executable(${PROJECT_NAME} main.c equipArray.h inv.h invArray.h pg.h pgList.h
-gdr.c)
+add_executable(${PROJECT_NAME} equipArray.h inv.h invArray.h pg.h pgList.h
+gdr.c
+        inv.c
+        invArray.c
+        pg.c
+        pgList.c)
 
 #Add file names if needed. This enables you to include a file with a relative path and being able to open/include it inside your main.c
 #Notice: It is better to add your file in the same folder as your main.c !

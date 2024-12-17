@@ -1,10 +1,12 @@
-#include <stdlib.h>
-#include <string.h>
-#include <stdio.h>
 
-#include "pgList.h"
+/*#include "pgList.h"
 #include "invArray.h"
 #include "pg.h"
+*/
+
+#include <stdlib.h>
+#include <stdio.h>
+
 
 #define N_SCELTE 7
 #define DBG 0

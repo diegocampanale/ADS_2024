@@ -73,7 +73,6 @@ int programma(tabElementi_t tEl){
     }
 
     programmaR(0,0,tEl,programma,best_programma,MAX_DIAG);
-    stampaSol(best_programma);
 
     int *bonus; *bonus=0;
     printf("--- Test Case ---\n");

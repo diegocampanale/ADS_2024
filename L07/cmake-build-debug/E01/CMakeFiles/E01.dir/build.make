@@ -69,26 +69,10 @@ include E01/CMakeFiles/E01.dir/progress.make
 # Include the compile flags for this target's objects.
 include E01/CMakeFiles/E01.dir/flags.make
 
-E01/CMakeFiles/E01.dir/main.c.o: E01/CMakeFiles/E01.dir/flags.make
-E01/CMakeFiles/E01.dir/main.c.o: /Users/diegocampanale/CLionProjects/ASD_24/L07/E01/main.c
-E01/CMakeFiles/E01.dir/main.c.o: /Users/diegocampanale/CLionProjects/ASD_24/L07/E01/pg.txt
-E01/CMakeFiles/E01.dir/main.c.o: /Users/diegocampanale/CLionProjects/ASD_24/L07/E01/inventario.txt
-E01/CMakeFiles/E01.dir/main.c.o: E01/CMakeFiles/E01.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/diegocampanale/CLionProjects/ASD_24/L07/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object E01/CMakeFiles/E01.dir/main.c.o"
-	cd /Users/diegocampanale/CLionProjects/ASD_24/L07/cmake-build-debug/E01 && /Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT E01/CMakeFiles/E01.dir/main.c.o -MF CMakeFiles/E01.dir/main.c.o.d -o CMakeFiles/E01.dir/main.c.o -c /Users/diegocampanale/CLionProjects/ASD_24/L07/E01/main.c
-
-E01/CMakeFiles/E01.dir/main.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/E01.dir/main.c.i"
-	cd /Users/diegocampanale/CLionProjects/ASD_24/L07/cmake-build-debug/E01 && /Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/diegocampanale/CLionProjects/ASD_24/L07/E01/main.c > CMakeFiles/E01.dir/main.c.i
-
-E01/CMakeFiles/E01.dir/main.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/E01.dir/main.c.s"
-	cd /Users/diegocampanale/CLionProjects/ASD_24/L07/cmake-build-debug/E01 && /Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/diegocampanale/CLionProjects/ASD_24/L07/E01/main.c -o CMakeFiles/E01.dir/main.c.s
-
 E01/CMakeFiles/E01.dir/gdr.c.o: E01/CMakeFiles/E01.dir/flags.make
 E01/CMakeFiles/E01.dir/gdr.c.o: /Users/diegocampanale/CLionProjects/ASD_24/L07/E01/gdr.c
 E01/CMakeFiles/E01.dir/gdr.c.o: E01/CMakeFiles/E01.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/diegocampanale/CLionProjects/ASD_24/L07/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object E01/CMakeFiles/E01.dir/gdr.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/diegocampanale/CLionProjects/ASD_24/L07/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object E01/CMakeFiles/E01.dir/gdr.c.o"
 	cd /Users/diegocampanale/CLionProjects/ASD_24/L07/cmake-build-debug/E01 && /Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT E01/CMakeFiles/E01.dir/gdr.c.o -MF CMakeFiles/E01.dir/gdr.c.o.d -o CMakeFiles/E01.dir/gdr.c.o -c /Users/diegocampanale/CLionProjects/ASD_24/L07/E01/gdr.c
 
 E01/CMakeFiles/E01.dir/gdr.c.i: cmake_force
@@ -99,19 +83,81 @@ E01/CMakeFiles/E01.dir/gdr.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/E01.dir/gdr.c.s"
 	cd /Users/diegocampanale/CLionProjects/ASD_24/L07/cmake-build-debug/E01 && /Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/diegocampanale/CLionProjects/ASD_24/L07/E01/gdr.c -o CMakeFiles/E01.dir/gdr.c.s
 
+E01/CMakeFiles/E01.dir/inv.c.o: E01/CMakeFiles/E01.dir/flags.make
+E01/CMakeFiles/E01.dir/inv.c.o: /Users/diegocampanale/CLionProjects/ASD_24/L07/E01/inv.c
+E01/CMakeFiles/E01.dir/inv.c.o: E01/CMakeFiles/E01.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/diegocampanale/CLionProjects/ASD_24/L07/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object E01/CMakeFiles/E01.dir/inv.c.o"
+	cd /Users/diegocampanale/CLionProjects/ASD_24/L07/cmake-build-debug/E01 && /Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT E01/CMakeFiles/E01.dir/inv.c.o -MF CMakeFiles/E01.dir/inv.c.o.d -o CMakeFiles/E01.dir/inv.c.o -c /Users/diegocampanale/CLionProjects/ASD_24/L07/E01/inv.c
+
+E01/CMakeFiles/E01.dir/inv.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/E01.dir/inv.c.i"
+	cd /Users/diegocampanale/CLionProjects/ASD_24/L07/cmake-build-debug/E01 && /Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/diegocampanale/CLionProjects/ASD_24/L07/E01/inv.c > CMakeFiles/E01.dir/inv.c.i
+
+E01/CMakeFiles/E01.dir/inv.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/E01.dir/inv.c.s"
+	cd /Users/diegocampanale/CLionProjects/ASD_24/L07/cmake-build-debug/E01 && /Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/diegocampanale/CLionProjects/ASD_24/L07/E01/inv.c -o CMakeFiles/E01.dir/inv.c.s
+
+E01/CMakeFiles/E01.dir/invArray.c.o: E01/CMakeFiles/E01.dir/flags.make
+E01/CMakeFiles/E01.dir/invArray.c.o: /Users/diegocampanale/CLionProjects/ASD_24/L07/E01/invArray.c
+E01/CMakeFiles/E01.dir/invArray.c.o: E01/CMakeFiles/E01.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/diegocampanale/CLionProjects/ASD_24/L07/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object E01/CMakeFiles/E01.dir/invArray.c.o"
+	cd /Users/diegocampanale/CLionProjects/ASD_24/L07/cmake-build-debug/E01 && /Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT E01/CMakeFiles/E01.dir/invArray.c.o -MF CMakeFiles/E01.dir/invArray.c.o.d -o CMakeFiles/E01.dir/invArray.c.o -c /Users/diegocampanale/CLionProjects/ASD_24/L07/E01/invArray.c
+
+E01/CMakeFiles/E01.dir/invArray.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/E01.dir/invArray.c.i"
+	cd /Users/diegocampanale/CLionProjects/ASD_24/L07/cmake-build-debug/E01 && /Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/diegocampanale/CLionProjects/ASD_24/L07/E01/invArray.c > CMakeFiles/E01.dir/invArray.c.i
+
+E01/CMakeFiles/E01.dir/invArray.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/E01.dir/invArray.c.s"
+	cd /Users/diegocampanale/CLionProjects/ASD_24/L07/cmake-build-debug/E01 && /Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/diegocampanale/CLionProjects/ASD_24/L07/E01/invArray.c -o CMakeFiles/E01.dir/invArray.c.s
+
+E01/CMakeFiles/E01.dir/pg.c.o: E01/CMakeFiles/E01.dir/flags.make
+E01/CMakeFiles/E01.dir/pg.c.o: /Users/diegocampanale/CLionProjects/ASD_24/L07/E01/pg.c
+E01/CMakeFiles/E01.dir/pg.c.o: E01/CMakeFiles/E01.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/diegocampanale/CLionProjects/ASD_24/L07/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object E01/CMakeFiles/E01.dir/pg.c.o"
+	cd /Users/diegocampanale/CLionProjects/ASD_24/L07/cmake-build-debug/E01 && /Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT E01/CMakeFiles/E01.dir/pg.c.o -MF CMakeFiles/E01.dir/pg.c.o.d -o CMakeFiles/E01.dir/pg.c.o -c /Users/diegocampanale/CLionProjects/ASD_24/L07/E01/pg.c
+
+E01/CMakeFiles/E01.dir/pg.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/E01.dir/pg.c.i"
+	cd /Users/diegocampanale/CLionProjects/ASD_24/L07/cmake-build-debug/E01 && /Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/diegocampanale/CLionProjects/ASD_24/L07/E01/pg.c > CMakeFiles/E01.dir/pg.c.i
+
+E01/CMakeFiles/E01.dir/pg.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/E01.dir/pg.c.s"
+	cd /Users/diegocampanale/CLionProjects/ASD_24/L07/cmake-build-debug/E01 && /Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/diegocampanale/CLionProjects/ASD_24/L07/E01/pg.c -o CMakeFiles/E01.dir/pg.c.s
+
+E01/CMakeFiles/E01.dir/pgList.c.o: E01/CMakeFiles/E01.dir/flags.make
+E01/CMakeFiles/E01.dir/pgList.c.o: /Users/diegocampanale/CLionProjects/ASD_24/L07/E01/pgList.c
+E01/CMakeFiles/E01.dir/pgList.c.o: E01/CMakeFiles/E01.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/diegocampanale/CLionProjects/ASD_24/L07/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object E01/CMakeFiles/E01.dir/pgList.c.o"
+	cd /Users/diegocampanale/CLionProjects/ASD_24/L07/cmake-build-debug/E01 && /Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT E01/CMakeFiles/E01.dir/pgList.c.o -MF CMakeFiles/E01.dir/pgList.c.o.d -o CMakeFiles/E01.dir/pgList.c.o -c /Users/diegocampanale/CLionProjects/ASD_24/L07/E01/pgList.c
+
+E01/CMakeFiles/E01.dir/pgList.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/E01.dir/pgList.c.i"
+	cd /Users/diegocampanale/CLionProjects/ASD_24/L07/cmake-build-debug/E01 && /Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/diegocampanale/CLionProjects/ASD_24/L07/E01/pgList.c > CMakeFiles/E01.dir/pgList.c.i
+
+E01/CMakeFiles/E01.dir/pgList.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/E01.dir/pgList.c.s"
+	cd /Users/diegocampanale/CLionProjects/ASD_24/L07/cmake-build-debug/E01 && /Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/diegocampanale/CLionProjects/ASD_24/L07/E01/pgList.c -o CMakeFiles/E01.dir/pgList.c.s
+
 # Object files for target E01
 E01_OBJECTS = \
-"CMakeFiles/E01.dir/main.c.o" \
-"CMakeFiles/E01.dir/gdr.c.o"
+"CMakeFiles/E01.dir/gdr.c.o" \
+"CMakeFiles/E01.dir/inv.c.o" \
+"CMakeFiles/E01.dir/invArray.c.o" \
+"CMakeFiles/E01.dir/pg.c.o" \
+"CMakeFiles/E01.dir/pgList.c.o"
 
 # External object files for target E01
 E01_EXTERNAL_OBJECTS =
 
-E01/E01: E01/CMakeFiles/E01.dir/main.c.o
 E01/E01: E01/CMakeFiles/E01.dir/gdr.c.o
+E01/E01: E01/CMakeFiles/E01.dir/inv.c.o
+E01/E01: E01/CMakeFiles/E01.dir/invArray.c.o
+E01/E01: E01/CMakeFiles/E01.dir/pg.c.o
+E01/E01: E01/CMakeFiles/E01.dir/pgList.c.o
 E01/E01: E01/CMakeFiles/E01.dir/build.make
 E01/E01: E01/CMakeFiles/E01.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/diegocampanale/CLionProjects/ASD_24/L07/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable E01"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/diegocampanale/CLionProjects/ASD_24/L07/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking C executable E01"
 	cd /Users/diegocampanale/CLionProjects/ASD_24/L07/cmake-build-debug/E01 && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -E copy_directory /Users/diegocampanale/CLionProjects/ASD_24/L07/E01 /Users/diegocampanale/CLionProjects/ASD_24/L07/E01/../L07_export/E01/
 	cd /Users/diegocampanale/CLionProjects/ASD_24/L07/cmake-build-debug/E01 && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -E remove /Users/diegocampanale/CLionProjects/ASD_24/L07/E01/../L07_export/E01/CMakeLists.txt
 	cd /Users/diegocampanale/CLionProjects/ASD_24/L07/cmake-build-debug/E01 && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -E copy_if_different /Users/diegocampanale/CLionProjects/ASD_24/L07/E01/pg.txt /Users/diegocampanale/CLionProjects/ASD_24/L07/cmake-build-debug/E01/pg.txt
